@@ -1,0 +1,196 @@
+#!/bin/sh
+
+DATE=`date +"%Y%m%d%H"`
+OUTDIR=/mnt/koji/mash/
+
+PUNGIBUILDBOOT=0
+# set source path which copy from. This path have bootfiles & notbootfils subdir.
+PUNGIOUTISOSRC=/mnt/koji/isosource
+MAILLIST=""
+
+usage() {
+        cat <<-EOF
+        Usage: $0 [Options value]
+
+        Options:
+            -t | --mashconf releasever: set releasever as mash config.
+                         correspond to /etc/mash/$$releasever.mash
+            -c | --compspath pathname: set pathname as comps file path.
+            -n | --isoname isobasename: set isobasename of iso file.
+                          default catch first part of releasever.
+            -v | --isoversion isoversion: set version of iso file
+            -s | --skipboot:  don't run buildinstall.
+            -m | --mockconf configfile: set configfile as mock config file.
+                   configfile: file at /et/mock/, no suffix here. e.g.: ns6.5-x86_64
+            -r | --outisosrc srcpath: set srcpath for copy files to iso.
+            -k | --ksfile filepath: set path of ks file.
+            --help print this.
+EOF
+}
+
+while [ "$1" ]
+do
+    case "$1" in
+        -t | --mashconf)
+            RELEASEVER=$2
+            BASE_RELEASE=`echo $RELEASEVER | cut -d '-' -f 1`
+            shift;;
+        -c | --compspath)
+            COMPSPATH="${2}/comps-${RELEASEVER}.xml"
+            shift;;
+        -n | --isoname)
+            isobasename=$2
+            shift;;
+        -v | --isoversion)
+            isoversion=$2
+            shift;;
+        -m | --mockconf)
+            PUNGIMOCKCONF=$2
+            shift;;
+        -r | --outisosrc)
+            PUNGIOUTISOSRC=$2
+            shift;;
+        -s | --skipboot)
+            PUNGIBUILDBOOT=0;;
+        -k | --ksfile)
+            PUNGIKSPATH=$2
+            shift;;
+        --help)
+            usage
+            exit 0;;
+        *)
+            usage
+            exit 0;;
+    esac
+    shift
+done
+
+SUB_RELEASE=${RELEASEVER#"${BASE_RELEASE}"}
+if [ ! -z $SUB_RELEASE ]; then
+  SUB_RELEASE=${RELEASEVER#"${BASE_RELEASE}-"}
+fi
+
+umask 0002
+
+if [ ! -d $OUTDIR/log ]; then 
+	mkdir -p $OUTDIR/log
+fi
+
+HOSTIP=`/sbin/ifconfig | grep 'inet addr:' | grep -v '127.0.0.1' | cut -d : -f2 | awk '{print $1}'`
+IPCHECK=$(echo $HOSTIP | awk -F '.' '$1 < 255 && $1>=0 && $2<255 && $2>=0 && $3<255 && $3>=0 && $4<255 && $4>=0 {print 1}')
+
+## begin sign rpms
+for (( a=1; a<=10; a++ ))
+do
+  unsignlist=`sigulsign_unsigned.py --tag=$RELEASEVER --inherit --just-list ns6key`
+  if [ ${#unsignlist} -ne 0 ];then
+    echo "Begin sign unsigned rpms...">> $OUTDIR/log/$DATE.log
+    sigulsign_unsigned.py --tag=$RELEASEVER --inherit ns6 >> $OUTDIR/log/$DATE.log 2>&1
+  else
+    break
+  fi
+done
+if [ ${#unsignlist} -ne 0 ];then
+  MAILDFILE=/tmp/MASHMAIL.$$
+  echo "The following rpms have not been signed, please check it." > $MAILDFILE
+  echo "$unsignlist" >> $MAILDFILE
+  echo "for more detail, please check log file." >> $MAILDFILE
+  echo "mash log: http://$HOSTIP/kojifiles/mash/log/$DATE.log" >> $MAILDFILE
+  mail -s "failed sign rpms of $RELEASEVER" $MAILLIST -f builder@cs2c.com.cn < $MAILDFILE
+  rm -f $MAILDFILE
+  exit 3
+fi
+
+## set mash config
+TAGINHERIT=True
+MASH_OUT_SUBDIR=${BASE_RELEASE}/os
+if [ ! -z $SUB_RELEASE ] ;then
+  # check SUB_RELEASE include 'update'. todo: if some tag can't inherit, please add check thess tags.
+  if [[ $SUB_RELEASE =~ "updates" ]];then
+    TAGINHERIT=False
+  fi
+  MASH_OUT_SUBDIR=${BASE_RELEASE}/${SUB_RELEASE}
+fi
+
+if [ -e /etc/mash/$RELEASEVER.mash ]; then
+        mv /etc/mash/$RELEASEVER.mash /etc/mash/$RELEASEVER.mash.bak -f
+fi
+cat > /etc/mash/$RELEASEVER.mash << EOF
+# mash config file
+
+[$RELEASEVER]
+rpm_path = %(arch)s/Packages
+repodata_path = %(arch)s/
+source_path = source/SRPMS
+output_subdir = $MASH_OUT_SUBDIR
+debuginfo = True
+multilib = True
+multilib_method = devel
+multilib_file = list_pkgs.$BASE_RELEASE
+tag = $RELEASEVER
+inherit = $TAGINHERIT
+strict_keys = False
+arches = i386 x86_64
+delta = True
+max_delta_rpm_size = 800000000
+distro_tags = cpe:/o:neokylin:ns:6.5 Null
+hash_packages = False
+EOF
+
+
+MASH_OPTIONS="-o $OUTDIR $RELEASEVER"
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+if [ -f $COMPSPATH ]; then
+   MASH_OPTIONS="-f $COMPSPATH $MASH_OPTIONS"
+   echo "begin mash, please waiting for a while......"
+else
+   echo "##### mash without comps file." >> $OUTDIR/log/$DATE.log
+fi
+
+### run mash
+echo "begin mash with options: $MASH_OPTIONS." >> $OUTDIR/log/$DATE.log
+mash $MASH_OPTIONS >> $OUTDIR/log/$DATE.log 2>&1
+
+if [ $? -ne 0 ]; then
+    echo "******* mash error $RELEASEVER --- $DATE *****" >> $OUTDIR/log/$DATE.log
+
+    MAILDFILE=/tmp/MASHMAIL.$$
+    echo "mash run erro, while pullout repo: $RELEASEVER" > $MAILDFILE
+    echo "for more detail, please check log file." >> $MAILDFILE
+    echo "mash log: http://$HOSTIP/kojifiles/mash/log/$DATE.log" >> $MAILDFILE
+    mail -s "failed mash $RELEASEVER" $MAILLIST -f builder@cs2c.com.cn < $MAILDFILE
+    rm -f $MAILDFILE
+
+    exit 2
+fi
+echo "mash finished, repo is at $OUTDIR/$RELEASEVER"
+
+## relink new mashed repo.
+ [ ! -d $OUTDIR/mashed/$MASH_OUT_SUBDIR ] && mkdir -p $OUTDIR/mashed/$MASH_OUT_SUBDIR
+LATEST=0
+for i in `ls $OUTDIR/mashed/$MASH_OUT_SUBDIR`
+do
+  if [[ $i != *[!0-9]* ]];then
+    if [ -n "$LATEST" ] && [ $i -gt $LATEST ]; then
+        LATEST=$i
+    fi
+  fi
+done
+OLDMASH_SUBDIR=$OUTDIR/mashed/$MASH_OUT_SUBDIR/`expr ${LATEST} - 1`
+NEWMASH_SUBIDR=$OUTDIR/mashed/$MASH_OUT_SUBDIR/`expr ${LATEST} + 1`
+RELEASEREPO_PATH=$OUTDIR/release/$MASH_OUT_SUBDIR/repo
+mkdir -p $NEWMASH_SUBIDR
+mv $OUTDIR/$MASH_OUT_SUBDIR/* $NEWMASH_SUBIDR
+[ -d $OLDMASH_SUBDIR ] && rm -rf $OLDMASH_SUBDIR
+#[ ! -e `dirname $OUTDIR/release/$MASH_OUT_SUBDIR` ] && mkdir -p `dirname $OUTDIR/release/$MASH_OUT_SUBDIR`
+[ ! -e `dirname $RELEASEREPO_PATH` ] && mkdir -p `dirname $RELEASEREPO_PATH`
+pushd `dirname $RELEASEREPO_PATH`
+#ln -sfT $NEWMASH_SUBIDR $OUTDIR/release/$MASH_OUT_SUBDIR
+ln -sfT ../../../mashed/$MASH_OUT_SUBDIR/`basename $NEWMASH_SUBIDR` $RELEASEREPO_PATH
+popd
+
+exit 0
