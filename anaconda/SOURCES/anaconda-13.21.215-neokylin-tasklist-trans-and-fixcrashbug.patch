@@ -1,0 +1,40 @@
+diff -Nur anaconda-13.21.215.orig/iw/task_gui.py anaconda-13.21.215/iw/task_gui.py
+--- anaconda-13.21.215.orig/iw/task_gui.py	2014-05-09 12:53:47.000000000 +0800
++++ anaconda-13.21.215/iw/task_gui.py	2014-05-09 13:07:29.412004118 +0800
+@@ -41,6 +41,11 @@
+ # Author(s): Xia Lei <lei.xia@cs2c.com.cn>
+ # Description: fix bug(you can add/edit repo, and use the existed repoName)         
+ # KeyWords: * for ns6.5, fix bug(you can add/edit repo, and use the existed repoName)
++# 
++# No.5:
++# Author(s): Guo jianxing <jianxing.guo@cs2c.com.cn>
++# Description: fix bug(taskStore not translate)
++# KeyWords: * for ns6.5, fix bug(taskStore not translate)
+ 
+ # Neokylin add begin
+ # add for ns6.5, custom neokylin installation interface
+@@ -205,7 +210,9 @@
+         # Neokylin add begin
+         # add for ns6.5, fix bug(you can add/edit repo, and use the existed repoName)
+         # check the repo's name whether or not it is exist?
+-        if not _checkRepoName(repo):
++        # change the line to fix crash bug.(jianxing.guo)
++        #if not _checkRepoName(repo):
++        if not self._checkRepoName(repo): 
+             return False
+         # Neokylin end
+ 
+@@ -742,7 +749,12 @@
+                 continue
+ 
+             enabled = self.backend.groupListDefault(grps)
+-            store.append([not anyEnabled and enabled, gettext.ldgettext("comps", txt), grps])
++            # Neokylin add begin
++            # add for ns6.5, fix bug(taskStore not translate)
++            #store.append([not anyEnabled and enabled, gettext.ldgettext("comps", txt), grps])
++            store.append([not anyEnabled and enabled, gettext.ldgettext("anaconda", txt), grps])
++            # Neokylin end
++
+ 
+             if enabled:
+                 anyEnabled = True

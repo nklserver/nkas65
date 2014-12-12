@@ -1,0 +1,29 @@
+diff -Nur anaconda-13.21.215.orig/loader/shutdown.c anaconda-13.21.215/loader/shutdown.c
+--- anaconda-13.21.215.orig/loader/shutdown.c	2013-08-02 21:47:00.000000000 +0800
++++ anaconda-13.21.215/loader/shutdown.c	2014-05-09 14:57:15.368000320 +0800
+@@ -154,7 +154,7 @@
+ 
+ static void performDelayedReboot()
+ {
+-    printf("The system will be rebooted when you press Ctrl-C or Ctrl-Alt-Delete.\n");
++    printf("The system will be rebooted when you press Ctrl-Alt-Delete.\n");
+     while (1) {
+         sleep(1);
+     }
+diff -Nur anaconda-13.21.215.orig/po/zh_CN.po anaconda-13.21.215/po/zh_CN.po
+--- anaconda-13.21.215.orig/po/zh_CN.po	2014-05-09 13:11:28.000000000 +0800
++++ anaconda-13.21.215/po/zh_CN.po	2014-05-09 15:12:13.428000017 +0800
+@@ -6127,11 +6155,11 @@
+ "the same between installs."
+ msgstr ""
+ "如果启用的设备根据 /dev/mapper/mpath<letter> 格式而不是 /dev/mapper/<wwid> 命"
+-"名。备注：不保证多路经工具分配的用户友好名称在不同安装中是一致的。"
++"名。备注：不保证多路径工具分配的用户友好名称在不同安装中是一致的。"
+ 
+ #: ui/device-options.glade.h:3
+ msgid "Use _friendly names for multipath devices"
+-msgstr "在多路经设备中使用友好的名称（_f）"
++msgstr "在多路径设备中使用友好的名称（_f）"
+ 
+ #: ui/fcoe-config.glade.h:1
+ msgid "Configure FCoE Parameters"

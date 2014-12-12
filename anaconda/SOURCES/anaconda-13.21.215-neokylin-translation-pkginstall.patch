@@ -1,0 +1,29 @@
+diff -Nur anaconda-13.21.215.orig/yuminstall.py anaconda-13.21.215/yuminstall.py
+--- anaconda-13.21.215.orig/yuminstall.py	2014-05-09 12:53:47.000000000 +0800
++++ anaconda-13.21.215/yuminstall.py	2014-05-09 13:02:57.183000061 +0800
+@@ -28,6 +28,12 @@
+ #              I moves it from ns6.4 to ns6.5.
+ # KeyWords: add for ns6.5, fix bug about upgrade, but i am not clear about 
+ #           this bug, I moves it from ns6.4 to ns6.5.
++#
++# No.3:
++# Author(s): Guo jianxing <jianxing.guo@cs2c.com.cn>
++# Description: copy anaconda.mo to /mnt/sysimage/, ensure translation
++#              while installing packages.
++# KeyWords: * for ns6.5, ensure translation while installing packages
+             
+ 
+ from flags import flags
+@@ -1138,6 +1144,12 @@
+                     self.tsInfo.curmedia = None
+                     return DISPATCH_BACK
+ 
++            # Neokylin add begin
++            # add for ns6.5, ensure translation while installing packages
++            os.system("mkdir -p /mnt/sysimage/usr/share/locale/zh_CN/LC_MESSAGES")
++            os.system("cp /usr/share/locale/zh_CN/LC_MESSAGES/anaconda.mo /mnt/sysimage/usr/share/locale/zh_CN/LC_MESSAGES/")
++            # Neokylin end
++
+             self.ts.check()
+             self.ts.order()
+ 
