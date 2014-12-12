@@ -1,0 +1,67 @@
+diff -Nur anaconda-13.21.215.orig/anaconda anaconda-13.21.215/anaconda
+--- anaconda-13.21.215.orig/anaconda	2014-05-15 16:59:41.488000025 +0800
++++ anaconda-13.21.215/anaconda	2014-05-19 19:08:41.647999973 +0800
+@@ -55,6 +55,11 @@
+ #              add two steps, the first is to set hostname, 
+ #              the second is to show a prompt dialog.
+ # KeyWords: * for ns6.5, support for one click installation based kickstart
++# 
++# No.5:
++# Author(s): Guo jianxing <jianxing.guo@cs2c.com.cn>
++# Description: fix default lang set, make isolinux language setup valid.
++# KeyWords: * for ns6.5, fix default language set 
+ 
+ import sys, os, re, time, subprocess, atexit
+ from optparse import OptionParser
+@@ -1158,11 +1163,24 @@
+         anaconda.id.instLanguage.instLang = opts.lang
+         anaconda.id.instLanguage.systemLang = opts.lang
+         anaconda.id.timezone.setTimezoneInfo(anaconda.id.instLanguage.getDefaultTimeZone(anaconda.rootPath))
++    # Neokylin add begin
++    # add for ns6.5, fix default language set
++    elif opts.display_mode == 'g':
++        opts.lang = "zh_CN.UTF-8"
++        anaconda.id.instLanguage.instLang = opts.lang
++        anaconda.id.instLanguage.systemLang = opts.lang
++        anaconda.id.timezone.setTimezoneInfo(anaconda.id.instLanguage.getDefaultTimeZone(anaconda.rootPath))
++    else:
++        opts.lang = "en_US.UTF-8"
++        anaconda.id.instLanguage.instLang = opts.lang
++        anaconda.id.instLanguage.systemLang = opts.lang
++        anaconda.id.timezone.setTimezoneInfo(anaconda.id.instLanguage.getDefaultTimeZone(anaconda.rootPath))
+ 
+     # Neokylin add begin
+     # add for ns6.5, set default language and timezone
+-    opts, anaconda.id = setDefaultLangAndTimezone(opts, anaconda)
++    #opts, anaconda.id = setDefaultLangAndTimezone(opts, anaconda)
+     # Neokylin end
++    # Neokylin end fix default language set
+ 
+     if opts.keymap:
+         anaconda.dispatch.skipStep("keyboard", permanent = 1)
+diff -Nur anaconda-13.21.215.orig/loader/loader.c anaconda-13.21.215/loader/loader.c
+--- anaconda-13.21.215.orig/loader/loader.c	2013-10-23 04:04:58.000000000 +0800
++++ anaconda-13.21.215/loader/loader.c	2014-05-19 19:03:08.384000038 +0800
+@@ -26,6 +26,10 @@
+  *            Matt Wilson <msw@redhat.com>
+  *            Michael Fulbright <msf@redhat.com>
+  *            Jeremy Katz <katzj@redhat.com>
++ * No.1:
++ * Author(s): Guo jianxing <jianxing.guo@cs2c.com.cn>
++ * Description: make lang and keymap transfer loader to anaconda.
++ * KeyWords: * for ns6.5, make lang and keymap transfer loader to anaconda
+  */
+ 
+ #include <ctype.h>
+@@ -1333,7 +1337,11 @@
+ 
+             if (!access("/mnt/stage2/.discinfo", R_OK) || FL_RESCUE(flags)) {
+                 skipLangKbd = 1;
++                /* Neokylin change begin
++                 * skip follow line, for ns6.5, make lang and keymap transfer loader to anacond
+                 flags |= LOADER_FLAGS_NOPASS;
++                * Neokylin end
++                */
+ 
+                 setStage2LocFromCmdline(url, loaderData);
+                 skipMethodDialog = 1;
