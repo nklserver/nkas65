@@ -1,0 +1,32 @@
+diff -aruN system-config-vsftpd-0.5.1_back/src/render.py system-config-vsftpd-0.5.1/src/render.py
+--- system-config-vsftpd-0.5.1_back/src/render.py	2012-07-18 17:14:02.253757138 +0800
++++ system-config-vsftpd-0.5.1/src/render.py	2012-07-18 17:14:17.852757986 +0800
+@@ -1411,6 +1411,20 @@
+         # [pasv_promiscuous]
+         self.chPPasvPromiscuous = self.renderCheckButton( self.passiveBox, _('Check to make sure, that data connections are originating from the same IP') )
+         futils.makeConnect( self.chPPasvPromiscuous, self.generalFunctions )
++        self.lAConnectionTimeOut.set_sensitive ( self.chAllowActive.get_active( ) )
++        self.lAConnectionTimeOut2.set_sensitive( self.chAllowActive.get_active( ) )
++        self.sAConnectionTimeOut.set_sensitive ( self.chAllowActive.get_active( ) )
++        self.lADataPort.set_sensitive( self.chAllowActive.get_active( ) )
++        self.sADataPort.set_sensitive ( self.chAllowActive.get_active( ) )
++        self.lPAcceptTimeOut.set_sensitive ( self.chAllowPassive.get_active( ) )
++        self.lPAcceptTimeOut2.set_sensitive( self.chAllowPassive.get_active( ) )
++        self.sPAcceptTimeOut.set_sensitive( self.chAllowPassive.get_active( ) )
++        self.lPPorts.set_sensitive ( self.chAllowPassive.get_active( ) )
++        self.lPPorts2.set_sensitive( self.chAllowPassive.get_active( ) )
++        self.sPMinPort.set_sensitive( self.chAllowPassive.get_active( ) )
++        self.sPMaxPort.set_sensitive( self.chAllowPassive.get_active( ) )
++        self.chPPasvPromiscuous.set_sensitive( self.chAllowPassive.get_active( ) )
++
+ 
+     def __allowActiveConnection_toggled( self, widget ):
+         """Called when checkbox on allowing active connections get toggled"""
+@@ -1419,7 +1433,6 @@
+         self.sAConnectionTimeOut.set_sensitive ( self.chAllowActive.get_active( ) )
+         self.lADataPort.set_sensitive( self.chAllowActive.get_active( ) )
+         self.sADataPort.set_sensitive ( self.chAllowActive.get_active( ) )
+-
+         # Set Config
+         if widget.get_active( ) == True: self.config["port_enable"] = "YES"
+         else: self.config["port_enable"] = "NO"

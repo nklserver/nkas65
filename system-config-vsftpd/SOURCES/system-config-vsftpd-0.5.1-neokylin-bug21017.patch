@@ -1,0 +1,26 @@
+diff -aurN system-config-vsftpd-0.5.1_back/src/main.py system-config-vsftpd-0.5.1/src/main.py
+--- system-config-vsftpd-0.5.1_back/src/main.py	2012-07-10 12:40:13.836622124 +0800
++++ system-config-vsftpd-0.5.1/src/main.py	2012-07-10 12:42:55.544621079 +0800
+@@ -106,7 +106,7 @@
+         self.open.set_sensitive( 0 )
+ 
+         # Handle 
+-        handlers = { "on_mainWindow_destroy" : self.mainWindow_destroy,
++        handlers = { "on_mainWindow_destroy" : self.mainWindow_destroy2,
+                      "on_save1_activate"     : self.on_save,
+                      "on_reload1_activate"   : self.on_reload,
+                      "on_open1_activate"     : self.on_open,
+@@ -302,7 +302,12 @@
+         if config == None:
+             gtk.main_quit( )
+             sys.exit( 0 )
+-        else: run( config )
++        #else: run( config )
++
++    def mainWindow_destroy2( self, widget ):
++        
++        gtk.main_quit( )
++        sys.exit( 0 )
+ 
+ def run( config=None ):
+         """

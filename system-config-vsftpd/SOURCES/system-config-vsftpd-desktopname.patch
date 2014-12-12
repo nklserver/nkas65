@@ -1,0 +1,10 @@
+diff -aruN system-config-vsftpd-0.5.1.org/system-config-vsftpd.desktop system-config-vsftpd-0.5.1/system-config-vsftpd.desktop
+--- system-config-vsftpd-0.5.1.org/system-config-vsftpd.desktop	2012-08-30 17:08:32.873908329 +0800
++++ system-config-vsftpd-0.5.1/system-config-vsftpd.desktop	2012-08-30 17:21:55.896344908 +0800
+@@ -1,5 +1,6 @@
+ [Desktop Entry]
+ Name=FTP Administration
++Name[zh_CN]=FTP服务器配置工具
+ Comment=Configure the VSFTPD server
+ Comment[zh_CN]=VSFTPD 图形配置工具
+ Terminal=0

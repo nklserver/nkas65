@@ -1,0 +1,88 @@
+diff -aurN system-config-vsftpd-0.5.1_back/src/configParser.py system-config-vsftpd-0.5.1_orig/src/configParser.py
+--- system-config-vsftpd-0.5.1_back/src/configParser.py	2012-08-07 18:46:32.905038014 +0800
++++ system-config-vsftpd-0.5.1_orig/src/configParser.py	2012-08-07 19:02:41.073788291 +0800
+@@ -55,7 +55,7 @@
+                         "session_support"           : "NO", #TODO
+ 
+                         # ---Log In Options and Access Controls---------------------
+-                        "banned_email_file"         : "/etc/vsftpd.baned_emails", 
++                        "banned_email_file"         : "/etc/vsftpd/baned_emails", 
+                         "banner_file"               : "",
+                         "cmds_allowed"              : "", #TODO
+                         "deny_email_enable"         : "NO",
+@@ -64,7 +64,7 @@
+                         "tcp_wrappers"              : "NO",
+                         "userlist_deny"             : "YES",
+                         "userlist_enable"           : "NO",
+-                        "userlist_file"             : "/etc/vsftpd.user_list", 
++                        "userlist_file"             : "/etc/vsftpd/user_list", 
+                         "cmds_allowed"              : "", #TODO
+ 
+                         # ---Anonymous Use Options----------------------------------
+@@ -82,7 +82,7 @@
+                         "local_enable"              : "NO",
+                         "chmod_enable"              : "YES",
+                         "chroot_list_enable"        : "NO",
+-                        "chroot_list_file"          : "/etc/vsftpd.chroot_list",
++                        "chroot_list_file"          : "/etc/vsftpd/chroot_list",
+                         "chroot_local_user"         : "NO",
+                         "guest_enable"              : "NO",
+                         "guest_username"            : "ftp",
+@@ -168,7 +168,7 @@
+                         "tilde_user_enable"         : "NO",
+                         "use_sendfile"              : "YES",
+                         "virtual_use_local_privs"   : "NO",
+-                        "email_password_file"       : "/etc/vsftpd.email_passwords",
++                        "email_password_file"       : "/etc/vsftpd/email_passwords",
+                         "nopriv_user"               : "nobody",
+                         "user_sub_token"            : ""
+                         }
+diff -aurN system-config-vsftpd-0.5.1_back/src/main.py system-config-vsftpd-0.5.1_orig/src/main.py
+--- system-config-vsftpd-0.5.1_back/src/main.py	2012-08-07 18:46:32.905038014 +0800
++++ system-config-vsftpd-0.5.1_orig/src/main.py	2012-08-07 22:10:03.738039347 +0800
+@@ -111,7 +111,8 @@
+                      "on_reload1_activate"   : self.on_reload,
+                      "on_open1_activate"     : self.on_open,
+                      "on_quit1_activate"     : self.mainWindow_destroy,
+-                     "on_about1_activate"    : self.renderAbout
++                     "on_about1_activate"    : self.renderAbout,
++					 "on_mainWindow_delete_event" : self.mainWindow_delete
+                    }
+         self.xml_file.signal_autoconnect( handlers );
+ 
+@@ -291,6 +292,13 @@
+             Function to get window for parent-> child reasons
+         """
+         return self.window
++    def mainWindow_delete(self, widget1, widget2):
++
++        config = self.config.saveConfig( self.window )
++        if config == None:
++            gtk.main_quit( )
++            sys.exit( 0 )
++        return True
+ 
+     def mainWindow_destroy( self, widget ):
+         
+diff -aurN system-config-vsftpd-0.5.1_back/src/system-config-vsftpd.glade system-config-vsftpd-0.5.1_orig/src/system-config-vsftpd.glade
+--- system-config-vsftpd-0.5.1_back/src/system-config-vsftpd.glade	2012-08-07 18:46:32.905038014 +0800
++++ system-config-vsftpd-0.5.1_orig/src/system-config-vsftpd.glade	2012-08-07 21:39:02.874788402 +0800
+@@ -25,6 +25,7 @@
+   <property name="focus_on_map">True</property>
+   <property name="urgency_hint">False</property>
+   <signal name="destroy" handler="on_mainWindow_destroy" last_modification_time="Thu, 08 Feb 2007 13:23:37 GMT"/>
++  <signal name="delete_event" handler="on_mainWindow_delete_event" last_modification_time="Thu, 08 Feb 2007 13:23:37 GMT"/>
+ 
+   <child>
+     <widget class="GtkVBox" id="vbox1">
+diff -aurN system-config-vsftpd-0.5.1_b/system-config-vsftpd.desktop system-config-vsftpd-0.5.1/system-config-vsftpd.desktop
+--- system-config-vsftpd-0.5.1_b/system-config-vsftpd.desktop	2012-08-10 19:31:12.171358265 +0800
++++ system-config-vsftpd-0.5.1/system-config-vsftpd.desktop	2012-08-10 19:31:57.000371057 +0800
+@@ -1,6 +1,7 @@
+ [Desktop Entry]
+ Name=FTP Administration
+ Comment=Configure the VSFTPD server
++Comment[zh_CN]=VSFTPD 图形配置工具
+ Terminal=0
+ Exec=system-config-vsftpd
+ Type=Application

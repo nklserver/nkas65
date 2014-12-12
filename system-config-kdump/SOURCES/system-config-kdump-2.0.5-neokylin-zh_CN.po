@@ -1,0 +1,12 @@
+diff -auNr system-config-kdump-2.0.5/po/zh_CN.po system-config-kdump-2.0.5-build/po/zh_CN.po
+--- system-config-kdump-2.0.5/po/zh_CN.po	2013-05-18 05:17:56.721412161 +0800
++++ system-config-kdump-2.0.5-build/po/zh_CN.po	2013-05-18 05:18:36.844495774 +0800
+@@ -395,7 +395,7 @@
+ 
+ #: ../src/system-config-kdump.glade:80 ../src/system-config-kdump.glade:179
+ msgid "Disable kdump"
+-msgstr "启用 kdump"
++msgstr "禁用 kdump"
+ 
+ #: ../src/system-config-kdump.glade:93
+ msgid "_Help"

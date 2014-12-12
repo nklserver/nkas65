@@ -1,0 +1,23 @@
+diff -aruN system-config-vsftpd-0.5.1.org/src/render.py system-config-vsftpd-0.5.1/src/render.py
+--- system-config-vsftpd-0.5.1.org/src/render.py	2013-12-23 11:11:57.863751071 +0800
++++ system-config-vsftpd-0.5.1/src/render.py	2013-12-23 11:13:06.135616982 +0800
+@@ -1493,7 +1493,7 @@
+         self.sPAcceptTimeOut.set_value( float( self.config["accept_timeout"] ) )
+         self.sPMinPort.set_value( float( self.config["pasv_min_port"] ) )
+         self.sPMaxPort.set_value( float( self.config["pasv_max_port"] ) )
+-        self.chPPasvPromiscuous.set_active( self.config["pasv_promiscuous"] == "YES" )
++        self.chPPasvPromiscuous.set_active( self.config["pasv_promiscuous"] == "NO" )
+ 
+     def change( self, widget ):
+ 
+@@ -1532,8 +1532,8 @@
+             else:
+                 self.config["pasv_max_port"] = `int( widget.get_value( ) )`
+         elif widget == self.chPPasvPromiscuous: 
+-            if widget.get_active( ) == True: self.config["pasv_promiscuous"] = "YES"
+-            else: self.config["pasv_promiscuous"] = "NO"
++            if widget.get_active( ) == True: self.config["pasv_promiscuous"] = "NO"
++            else: self.config["pasv_promiscuous"] = "YES"
+ 
+ 
+ class TransferLog( renderMainWindow ):

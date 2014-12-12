@@ -1,0 +1,10 @@
+diff -aruN system-config-vsftpd-0.5.1.org/system-config-vsftpd.desktop system-config-vsftpd-0.5.1/system-config-vsftpd.desktop
+--- system-config-vsftpd-0.5.1.org/system-config-vsftpd.desktop	2014-04-14 17:16:51.577997510 +0800
++++ system-config-vsftpd-0.5.1/system-config-vsftpd.desktop	2014-04-14 17:18:57.458997451 +0800
+@@ -9,5 +9,5 @@
+ Icon=system-config-vsftpd.png
+ Encoding=UTF-8
+ X-Desktop-File-Install-Version=0.2
+-Categories=X-Red-Hat-Base;System;X-Red-Hat-ServerConfig;Application;
++Categories=X-Red-Hat-Base;X-Red-Hat-ServerConfig;Application;
+ 

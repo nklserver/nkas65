@@ -1,0 +1,24 @@
+diff -aruN system-config-vsftpd-0.5.1.org/src/shell.py system-config-vsftpd-0.5.1/src/shell.py
+--- system-config-vsftpd-0.5.1.org/src/shell.py	2012-09-21 12:58:00.323079347 +0800
++++ system-config-vsftpd-0.5.1/src/shell.py	2012-09-21 13:00:10.120287576 +0800
+@@ -68,7 +68,7 @@
+     def restartServer( self ):
+         """ Function to restart server """
+ 
+-        output = commands.getoutput( '/etc/init.d/vsftpd condrestart' )
++        output = commands.getoutput( '/etc/init.d/vsftpd restart' )
+         return output
+ 
+     def exists( self, file ):
+diff -aurN system-config-vsftpd-0.5.1_back/src/configParser.py system-config-vsftpd-0.5.1/src/configParser.py
+--- system-config-vsftpd-0.5.1_back/src/configParser.py	2012-09-24 19:28:31.060674211 +0800
++++ system-config-vsftpd-0.5.1/src/configParser.py	2012-09-24 19:30:10.122796557 +0800
+@@ -55,7 +55,7 @@
+                         "session_support"           : "NO", #TODO
+ 
+                         # ---Log In Options and Access Controls---------------------
+-                        "banned_email_file"         : "/etc/vsftpd/baned_emails", 
++                        "banned_email_file"         : "/etc/vsftpd/banned_emails", 
+                         "banner_file"               : "",
+                         "cmds_allowed"              : "", #TODO
+                         "deny_email_enable"         : "NO",

@@ -1,0 +1,12 @@
+diff -auNr system-config-kdump-2.0.5/src/system-config-kdump.py system-config-kdump-2.0.5-build/src/system-config-kdump.py
+--- system-config-kdump-2.0.5/src/system-config-kdump.py	2013-07-11 13:57:47.821450310 +0800
++++ system-config-kdump-2.0.5-build/src/system-config-kdump.py	2013-07-11 13:58:31.028496407 +0800
+@@ -901,6 +901,8 @@
+ 
+         self.my_settings.copy_settings(self.orig_settings)
+         self.reset_settings()
++        self.kdump_enable_toggled(self.disable_button)
++        self.kdump_enable_toggled(self.enable_button)
+ 
+     def check_fadump(self):
+         """

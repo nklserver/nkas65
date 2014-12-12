@@ -1,0 +1,24 @@
+commit f651eb5664e0ef265c8114ae5b203b4ad2bec0f6
+Author: Marek 'marx' Grac <mgrac@redhat.com>
+Date:   Thu May 10 12:23:07 2012 +0200
+
+    Resolves: #736176 - s-c-lvm won't start when mirror log is used
+    
+    Function get_extent_block() was used on MirroredSegment which does not
+    have that method. Marking these blocks as "mirrored" is not needed becasuse
+    it is already done in add_image() and segment in GUI is marked correctly.
+
+diff --git a/src/LogicalVolume.py b/src/LogicalVolume.py
+index 86e5742..0ccf27c 100644
+--- a/src/LogicalVolume.py
++++ b/src/LogicalVolume.py
+@@ -74,9 +74,6 @@ class LogicalVolume(Volume):
+     if log != None and log.__class__ == self.__class__:
+       log.is_mirror_log = True
+       log.set_name(self.get_name())
+-      for seg in log.get_segments():
+-        extent = seg.get_extent_block()
+-        extent.set_annotation(MIRROR_LOG)
+   def get_mirror_log(self):
+     return self.mirror_log
+   

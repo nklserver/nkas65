@@ -1,0 +1,30 @@
+From bb1d953d86e3fcb9826e67f49a7d227c3976f29b Mon Sep 17 00:00:00 2001
+From: Marek 'marx' Grac <mgrac@redhat.com>
+Date: Mon, 19 Mar 2012 17:10:04 +0100
+Subject: [PATCH] Resolves: #726830 - Crash on partitions loop0p1, mpathbp1,
+ ...
+
+This patch resolve only problem with crashing, support for those partitions was not added as we are in maintanance mode.
+---
+ src/fdisk_wrapper.py |    5 ++++-
+ 1 files changed, 4 insertions(+), 1 deletions(-)
+
+diff --git a/src/fdisk_wrapper.py b/src/fdisk_wrapper.py
+index 302e620..03601c8 100644
+--- a/src/fdisk_wrapper.py
++++ b/src/fdisk_wrapper.py
+@@ -100,7 +100,10 @@ class FDisk:
+             words = line.split()
+             # partition num
+             tmp = words[0].strip()
+-            part_num = int(tmp[len(devname):])
++            try:
++                part_num = int(tmp[len(devname):])
++            except ValueError:
++                continue
+             del(words[0])
+             # bootable
+             if words[0] == '*':
+-- 
+1.7.7.6
+

@@ -1,0 +1,84 @@
+From 72b0c83de6b9a64db2cf769d2a662fa6b446d1af Mon Sep 17 00:00:00 2001
+From: Marek 'marx' Grac <mgrac@redhat.com>
+Date: Thu, 16 Aug 2012 15:37:51 +0200
+Subject: [PATCH 1/4] Resolves: #834231 - s-c-lvm crash after startup on
+ machine with many LV
+
+This patch does not restrict users on number of LVs but instead it just
+turn off best fit option for resizing cylinders if there is more than 100 LVs.
+---
+ src/Volume_Tab_View.py |   13 ++++++++++++-
+ src/renderer.py        |    9 ++++++---
+ 2 files changed, 18 insertions(+), 4 deletions(-)
+
+diff --git a/src/Volume_Tab_View.py b/src/Volume_Tab_View.py
+index bc3bbdd..4d39468 100644
+--- a/src/Volume_Tab_View.py
++++ b/src/Volume_Tab_View.py
+@@ -45,6 +45,7 @@ UNINITIALIZED_ENTITIES=_("Uninitialized Entities")
+ PHYSICAL_VIEW=_("Physical View")
+ LOGICAL_VIEW=_("Logical View")
+ 
++MAX_LV_FOR_BESTFIT = 100
+                                                                                 
+ #############################################################
+ class Volume_Tab_View:
+@@ -57,6 +58,8 @@ class Volume_Tab_View:
+     self.height = 0
+     self.glade_xml = glade_xml
+ 
++    self.try_best_fit = False
++
+     ##Set up list structure
+     self.treeview = self.glade_xml.get_widget('treeview1')
+     self.treemodel = self.treeview.get_model()
+@@ -135,6 +138,14 @@ class Volume_Tab_View:
+     vgs = self.model_factory.get_VGs()
+     if len(vgs) > 0:
+         model.foreach(self.check_tree_items, [vgs[0].get_name()])
++        
++        lvs_count = 0
++        for vg in vgs:
++            lvs_count += len(vg.lvs)
++        if (lvs_count < MAX_LV_FOR_BESTFIT):
++            self.try_best_fit = True
++        else:
++            self.glade_xml.get_widget('best_fit_button').set_sensitive(False)            
+     else:
+         unallocs = self.model_factory.query_unallocated()
+         if len(unallocs) > 0:
+@@ -532,7 +543,7 @@ class Volume_Tab_View:
+   
+   def on_best_fit(self, obj):
+       self.on_resize_drawing_area(None, None)
+-      self.__set_zoom_buttons(self.display_view.set_best_fit())
++      self.__set_zoom_buttons(self.display_view.set_best_fit(self.try_best_fit))
+       self.display_view.draw()
+   
+   def on_zoom_in(self, obj):
+diff --git a/src/renderer.py b/src/renderer.py
+index d179e55..3e26399 100644
+--- a/src/renderer.py
++++ b/src/renderer.py
+@@ -140,12 +140,15 @@ class DisplayView:
+         
+         return (True, True)
+     
+-    def set_best_fit(self):
++    def set_best_fit(self, try_best_fit = True):
+         if self.display == None:
+             return (False, False)
+-        
++
+         self.display.respect_smallest_selectable_width(False)
+-        
++
++        if try_best_fit == False:
++            return (False, False)        
++
+         vis_w, vis_h = self.get_visible_size()
+         pix_w, pix_h, u_label_h = self.display.minimum_pixmap_dimension(self.da)
+         
+-- 
+1.7.7.6
+

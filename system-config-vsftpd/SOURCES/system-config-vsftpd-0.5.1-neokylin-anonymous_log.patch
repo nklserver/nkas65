@@ -1,0 +1,12 @@
+diff -aurN system-config-vsftpd-0.5.1_back/src/logs.py system-config-vsftpd-0.5.1/src/logs.py
+--- system-config-vsftpd-0.5.1_back/src/logs.py	2012-07-17 08:46:27.237921722 +0800
++++ system-config-vsftpd-0.5.1/src/logs.py	2012-07-17 09:57:18.299757662 +0800
+@@ -67,7 +67,7 @@
+                             r"( .+)"               # auth user_id
+                             r"( [-a-zA-Z0-9]+)"    # authentification
+                             r"( [a-z]+)"           # service name
+-                            r"( [a-zA-Z0-9\?\@]*)"     # identification of user
++                            r"( [a-zA-Z0-9\?\@\<\>\_]*)"     # identification of user
+                             r"( [ar])"             # access mode anonymous/real
+                             r"( [io])"             # direction of transfer ----
+                             r"( .)"                # special flag

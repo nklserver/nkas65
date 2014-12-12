@@ -1,0 +1,70 @@
+From 743e030ed90f10d9d19c83ef6713a26cd2b07ea9 Mon Sep 17 00:00:00 2001
+From: Marek 'marx' Grac <mgrac@redhat.com>
+Date: Mon, 3 Sep 2012 14:51:26 +0200
+Subject: [PATCH 2/4] Resolves: #834231 - s-c-lvm crash after startup on
+ machine with many LV
+
+Previous patch has problems when count of LV is greater than ~350LV.
+---
+ src/Volume_Tab_View.py |    9 ++++++---
+ src/renderer.py        |    4 ++--
+ 2 files changed, 8 insertions(+), 5 deletions(-)
+
+diff --git a/src/Volume_Tab_View.py b/src/Volume_Tab_View.py
+index 4d39468..b9e025f 100644
+--- a/src/Volume_Tab_View.py
++++ b/src/Volume_Tab_View.py
+@@ -58,7 +58,7 @@ class Volume_Tab_View:
+     self.height = 0
+     self.glade_xml = glade_xml
+ 
+-    self.try_best_fit = False
++    self.try_not_best_fit = True
+ 
+     ##Set up list structure
+     self.treeview = self.glade_xml.get_widget('treeview1')
+@@ -143,7 +143,7 @@ class Volume_Tab_View:
+         for vg in vgs:
+             lvs_count += len(vg.lvs)
+         if (lvs_count < MAX_LV_FOR_BESTFIT):
+-            self.try_best_fit = True
++            self.try_not_best_fit = False
+         else:
+             self.glade_xml.get_widget('best_fit_button').set_sensitive(False)            
+     else:
+@@ -542,8 +542,11 @@ class Volume_Tab_View:
+       
+   
+   def on_best_fit(self, obj):
++      if (self.try_not_best_fit == True):
++          return
++
+       self.on_resize_drawing_area(None, None)
+-      self.__set_zoom_buttons(self.display_view.set_best_fit(self.try_best_fit))
++      self.__set_zoom_buttons(self.display_view.set_best_fit(self.try_not_best_fit))
+       self.display_view.draw()
+   
+   def on_zoom_in(self, obj):
+diff --git a/src/renderer.py b/src/renderer.py
+index 3e26399..ed2687e 100644
+--- a/src/renderer.py
++++ b/src/renderer.py
+@@ -140,13 +140,13 @@ class DisplayView:
+         
+         return (True, True)
+     
+-    def set_best_fit(self, try_best_fit = True):
++    def set_best_fit(self, try_not_best_fit = False):
+         if self.display == None:
+             return (False, False)
+ 
+         self.display.respect_smallest_selectable_width(False)
+ 
+-        if try_best_fit == False:
++        if try_not_best_fit == True:
+             return (False, False)        
+ 
+         vis_w, vis_h = self.get_visible_size()
+-- 
+1.7.7.6
+

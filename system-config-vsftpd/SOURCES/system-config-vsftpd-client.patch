@@ -1,0 +1,26 @@
+diff -uraN system-config-vsftpd-0.5.1.old/po/zh_CN.po system-config-vsftpd-0.5.1.change/po/zh_CN.po
+--- system-config-vsftpd-0.5.1.old/po/zh_CN.po	2012-04-16 10:20:14.433040214 +0800
++++ system-config-vsftpd-0.5.1.change/po/zh_CN.po	2012-04-16 13:55:40.268436247 +0800
+@@ -243,6 +243,10 @@
+ msgid "clients"
+ msgstr "客户端"
+ 
++#: src/render.py:304
++msgid "client"
++msgstr "客户端"
++
+ #: src/render.py:308
+ msgid "Server is stopped"
+ msgstr "服务被停止"
+diff -uraN system-config-vsftpd-0.5.1.old/src/shell.py system-config-vsftpd-0.5.1.change/src/shell.py
+--- system-config-vsftpd-0.5.1.old/src/shell.py	2012-04-16 10:20:14.441345740 +0800
++++ system-config-vsftpd-0.5.1.change/src/shell.py	2012-04-16 13:56:40.409484360 +0800
+@@ -80,7 +80,7 @@
+     def getActuall( self ):
+         """ Function to get count of actuall connected users"""
+ 
+-        return commands.getoutput( 'netstat -pne | grep vsftpd | grep STREAM | awk \'{print $8}\' | uniq | wc -l' )
++        return commands.getoutput( 'netstat -pne | grep vsftpd | grep ESTABLISHED | awk \'{print $8}\' | uniq | wc -l' )
+ 
+     def getLogs( self ):
+         """ Function to get logs """

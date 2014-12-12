@@ -1,0 +1,1572 @@
+diff -uraN system-config-vsftpd-0.5.1.old/po/zh_CN.po system-config-vsftpd-0.5.1.change/po/zh_CN.po
+--- system-config-vsftpd-0.5.1.old/po/zh_CN.po	1970-01-01 08:00:00.000000000 +0800
++++ system-config-vsftpd-0.5.1.change/po/zh_CN.po	2012-03-14 10:33:17.352266603 +0800
+@@ -0,0 +1,959 @@
++# Chinese translations for PACKAGE package
++# PACKAGE 软件包的简体中文翻译.
++# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
++# This file is distributed under the same license as the PACKAGE package.
++# root <dongyu.zhen@cs2c.com.cn>, 2010.
++#
++#: src/configParser.py:59 src/configParser.py:60 src/configParser.py:62
++#: src/configParser.py:68 src/configParser.py:73 src/configParser.py:89
++#: src/configParser.py:91 src/configParser.py:103 src/configParser.py:104
++#: src/configParser.py:132 src/configParser.py:133 src/configParser.py:138
++#: src/configParser.py:153 src/configParser.py:173 src/configParser.pyc:13
++#: src/configParser.pyc:52 src/exitDialog.pyc:29 src/futils.pyc:27
++#: src/futils.pyc:36 src/guiRender.py:688 src/guiRender.py:828
++#: src/guiRender.py:844 src/guiRender.py:911 src/guiRender.pyc:18
++#: src/guiRender.pyc:30 src/guiRender.pyc:39 src/guiRender.pyc:70
++#: src/guiRender.pyc:88 src/guiRender.pyc:142 src/guiRender.pyc:149
++#: src/guiRender.pyc:170 src/guiRender.pyc:179 src/guiRender.pyc:206
++#: src/guiRender.pyc:308 src/guiRender.pyc:434 src/guiRender.pyc:468
++#: src/guiRender.pyc:519 src/guiRender.pyc:543 src/guiRender.pyc:582
++#: src/guiRender.pyc:583 src/guiRender.pyc:618 src/guiRender.pyc:633
++#: src/guiRender.pyc:635 src/guiRender.pyc:657 src/guiRender.pyc:738
++#: src/guiRender.pyc:891 src/logs.pyc:34 src/main.py:75 src/main.py:76
++#: src/render.py:240 src/render.py:241 src/render.py:453 src/render.py:456
++#: src/render.pyc:91 src/render.pyc:131 src/render.pyc:142 src/render.pyc:162
++#: src/render.pyc:164 src/render.pyc:172 src/render.pyc:176 src/render.pyc:178
++#: src/render.pyc:202 src/render.pyc:220 src/render.pyc:296 src/render.pyc:301
++#: src/shell.py:95 src/shell.py:98 src/sysutils.py:45 src/sysutils.py:69
++#: src/sysutils.py:73 src/sysutils.py:87 src/sysutils.py:91
++msgid ""
++msgstr ""
++"Project-Id-Version: PACKAGE VERSION\n"
++"Report-Msgid-Bugs-To: \n"
++"POT-Creation-Date: 2010-04-06 20:52+0800\n"
++"PO-Revision-Date: 2010-04-06 20:54+0800\n"
++"Last-Translator: root <dongyu.zhen@cs2c.com.cn>\n"
++"Language-Team: Chinese\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++
++
++#: src/confChoice.py:49 src/exitDialog.py:51
++msgid "Please choose ..."
++msgstr "请选择……"
++
++#: src/confChoice.py:73 src/exitDialog.py:82
++msgid "OK"
++msgstr "OK"
++
++#: src/exitDialog.py:57
++msgid "Save configuration and exit"
++msgstr "保存配置并退出"
++
++#: src/exitDialog.py:58
++msgid "Save configuration, restart server and exit"
++msgstr "保存配置、重启服务并退出"
++
++#: src/exitDialog.py:59
++msgid "Don't save configuration and exit"
++msgstr "不保存配置并退出"
++
++#: src/exitDialog.py:60 src/exitDialog.py:65
++msgid "Back to main window"
++msgstr "退回到主窗口"
++
++#: src/exitDialog.py:63
++msgid "Only save configuration"
++msgstr "保存配置文件"
++
++#: src/exitDialog.py:64
++msgid "Save configuration and restart server"
++msgstr "保存配置并重启服务"
++
++#: src/exitDialog.py:74
++msgid "Option"
++msgstr "选项"
++
++#: src/exitDialog.py:75
++msgid "Old"
++msgstr "修改前"
++
++#: src/exitDialog.py:76
++msgid "New"
++msgstr "修改后"
++
++#: src/futils.py:96
++msgid "IP"
++msgstr "IP地址"
++
++#: src/futils.py:107
++msgid "Time"
++msgstr "时间"
++
++##: src/futils.py:108
++#msgid "I/O"
++#msgstr ""
++
++#: src/futils.py:109
++msgid "User"
++msgstr "用户"
++
++#: src/futils.py:110 src/sysutils.py:141
++msgid "File"
++msgstr "文件"
++
++#: src/main.py:37
++msgid "This is a graphical application and requires DISPLAY to be set."
++msgstr "这是一个图形应用程序并且需要对显示进行设置。"
++
++#: src/main.py:41
++msgid "This is system-config-vsftpd, a VSFTPD server configuration program."
++msgstr "这是system-config-vsftpd，一个VSFTPD服务的管理程序。"
++
++#: src/main.py:42
++msgid "For run write: python main.py"
++msgstr "执行写操作：python main.py"
++
++#: src/main.py:86
++msgid "A configuration tool for Very secure FTP server"
++msgstr "VSFTP服务器配置工具"
++
++#: src/main.py:120
++msgid "You must be root to run this program !"
++msgstr "你必须以root用户运行这个程序！"
++
++#: src/main.py:216 src/render.py:115 src/render.pyc:34
++msgid "General"
++msgstr "常规选项"
++
++#: src/main.py:217 src/render.py:227 src/render.pyc:70
++msgid "Server Control"
++msgstr "服务控制"
++
++#: src/main.py:218 src/render.py:369 src/render.pyc:119
++msgid "Access Control"
++msgstr "存取控制"
++
++#: src/main.py:219 src/render.py:558 src/render.pyc:153
++msgid "Users"
++msgstr "用户配置"
++
++#: src/main.py:220 src/render.py:987 src/render.pyc:226
++msgid "Directory Options"
++msgstr "目录配置"
++
++#: src/main.py:221 src/render.py:1124 src/render.pyc:253
++msgid "Logging"
++msgstr "日志配置"
++
++#: src/main.py:222 src/render.py:1250 src/render.pyc:281
++msgid "Network Options"
++msgstr "网络配置"
++
++#: src/main.py:223 src/render.py:1534
++msgid "Transfer log"
++msgstr "传送日志"
++
++#: src/render.py:116
++msgid ""
++"The following is a list of directives which control the overall behavior of "
++"the vsftpd daemon"
++msgstr "以下是一个用于控制vsftpd守护进程的全局配置"
++
++#: src/render.py:120
++msgid "Use TCP wrappers "
++msgstr "使用TCP Wrappers"
++
++#: src/render.py:122
++msgid "Enable download files"
++msgstr "允许下载文件"
++
++#: src/render.py:124
++msgid "Enable upload files"
++msgstr "允许上传文件"
++
++#: src/render.py:131
++msgid "Run server in standalone mode"
++msgstr "在standalone模式下运行这个服务"
++
++#: src/render.py:136
++msgid "Protocol Settings"
++msgstr "协议设置"
++
++#: src/render.py:144
++msgid "Do not run in standalone mode"
++msgstr "不在standalone模式下运行"
++
++#: src/render.py:227
++msgid "Service control management"
++msgstr "服务控制"
++
++#: src/render.py:232
++msgid "Server status"
++msgstr "服务状态"
++
++#: src/render.py:255
++msgid "Status Log"
++msgstr "状态日志"
++
++#: src/render.py:256
++msgid "This log shows all messages during server startup or stop"
++msgstr "这个日志显示了所有启动和停止的信息"
++
++#: src/render.py:263
++msgid "Standard Log"
++msgstr "标准日志"
++
++#: src/render.py:264
++msgid "This log shows all standard logs from vsftpd"
++msgstr "这个日志显示了vsftpd的标准日志"
++
++##: src/render.py:271
++#msgid "XFerLog"
++#msgstr ""
++
++#: src/render.py:272
++msgid "Wu-ftpd compatible log"
++msgstr "Wu-ftpd兼容日志"
++
++#: src/render.py:279
++msgid "System Log"
++msgstr "系统日志"
++
++#: src/render.py:280
++msgid ""
++"System log shows all logs from /var/log/messages which contains 'vsftpd'"
++msgstr ""
++"系统日志显示了/var/log/messages文件中包含vsftpd的部分"
++
++#: src/render.py:288
++msgid "Reload logs"
++msgstr "重载日志"
++
++##: src/render.py:292
++#msgid " Function to load logs "
++#msgstr "加载日志函数"
++
++##: src/render.py:300
++#msgid " Function to check server status "
++#msgstr "检查服务状态函数"
++
++#: src/render.py:304
++msgid "clients"
++msgstr "客户端"
++
++#: src/render.py:308
++msgid "Server is stopped"
++msgstr "服务被停止"
++
++#: src/render.py:309
++msgid "Click this button to start ftp server."
++msgstr "点击这个按钮来启动ftp服务"
++
++#: src/render.py:310
++msgid "Start FTP Server"
++msgstr "开始FTP服务"
++
++#: src/render.py:313
++msgid "Server is running"
++msgstr "服务正在运行"
++
++#: src/render.py:314
++msgid "Click this button to stop ftp server."
++msgstr "点击这个按钮来停止ftp服务"
++
++#: src/render.py:315
++msgid "Stop FTP Server"
++msgstr "停止FTP服务"
++
++#: src/render.py:370
++msgid ""
++"The following is a list of directives which control the login behavior and "
++"access control mechanisms"
++msgstr "以下是用于用户登录控制和存储机制控制的选项"
++
++#: src/render.py:376
++msgid "Banners"
++msgstr "欢迎信息"
++
++#: src/render.py:383
++msgid "Use string :"
++msgstr "使用字符串："
++
++#: src/render.py:392
++msgid "Use file :"
++msgstr "使用文件："
++
++#: src/render.py:396 src/render.py:417 src/render.py:441 src/render.py:617
++#: src/render.py:644 src/render.py:655 src/render.py:1160 src/render.py:1167
++msgid "Change..."
++msgstr "更改……"
++
++#: src/render.py:403
++msgid "Email bans"
++msgstr "电子邮件禁止"
++
++#: src/render.py:410
++msgid "Define emails not permitted access to the server"
++msgstr "启用禁止访问服务器的匿名用户电子邮件列表"
++
++#: src/render.py:424
++msgid "Local users"
++msgstr "本地用户"
++
++#: src/render.py:429
++msgid "Enable list of allowed / denied users"
++msgstr "启用用户列表(userlist)功能"
++
++#: src/render.py:434
++msgid "Deny users in the list (otherwise allow)"
++msgstr "禁止列表中用户登录（否则仅允许列表中用户登录）"
++
++#: src/render.py:559
++msgid ""
++"the following is a list of directives which charakterize the way local and "
++"anonymous users access the server."
++msgstr "以下选项提供了管理本地用户和匿名用户的方法。"
++
++#: src/render.py:575
++msgid "System users"
++msgstr "系统用户"
++
++#: src/render.py:578
++msgid "Allow local users"
++msgstr "允许本地用户登录到服务器"
++
++#: src/render.py:589
++msgid "Allow users to change the permissions on files"
++msgstr "允许用户更改文件权限"
++
++#: src/render.py:593
++msgid "Change root directory for the users to their home directories"
++msgstr "更改vsftpd根目录为用户家目录"
++
++#: src/render.py:597
++msgid ""
++"Change root directory based on the occurece of the \".\" in the home "
++"directory field within /etc/passwd"
++msgstr "更改vsftpd根目录为/etc/passwd中的用户家目录"
++
++#: src/render.py:605	
++msgid "Chroot Jail"
++msgstr "启用chroot_list文件"
++
++#: src/render.py:610
++msgid "Place only users from list below to \"chroot jail\""
++msgstr "仅允许以下列表中用户\"chroot jail\""
++
++#: src/render.py:623
++msgid "Guest"
++msgstr "来宾"
++
++#: src/render.py:628
++msgid "Change all non-anonymous users logged in to the user:"
++msgstr "更改所有非匿名用户登录到用户："
++
++#: src/render.py:640
++msgid ""
++"Specify the directory <i>vsftpd</i> changes to after a local user logs in:"
++msgstr "本地用户登录<i>vsftpd</i>后，直接进入目录："
++
++#: src/render.py:650
++msgid ""
++"Specify the path to a directory containing configuration files bearing the "
++"name of local system\n"
++"users that contain specific settings for that user"
++msgstr ""
++"本地用户单独配置文件所在目录（其中包括该用户的自定义设置）"
++
++#: src/render.py:662
++msgid "Maximum data transfer rate (B/s):   "
++msgstr "本地用户最大数据传输率(B/s)"
++
++#: src/render.py:667 src/render.py:765
++msgid "Umask for file creation: "
++msgstr "创建新文件的默认Umask值"
++
++#: src/render.py:681
++msgid "Anonymous user"
++msgstr "匿名用户"
++
++#: src/render.py:684
++msgid "Allow anonymous user"
++msgstr "允许匿名用户登录到服务器"
++
++#: src/render.py:695
++msgid "Allow creating new directories"
++msgstr "允许匿名用户建立新文件夹"
++
++#: src/render.py:699
++msgid "Allow upload files"
++msgstr "允许匿名用户上传文件"
++
++#: src/render.py:703
++msgid "Do not ask for a password"
++msgstr "不询问匿名用户密码"
++
++#: src/render.py:708
++msgid "Allow to download only world-readable files"
++msgstr "只允许匿名用户下载所有用户都可以访问的文件"
++
++#: src/render.py:713
++msgid "Allow anonymous to use ssl connection"
++msgstr "允许匿名用户使用ssl连接"
++
++#: src/render.py:720
++msgid "Changing owner"
++msgstr "修改上传文件所有者"
++
++#: src/render.py:725
++msgid "Change owner on all uploaded files to user below "
++msgstr "修改上传文件所有者为以下用户"
++
++#: src/render.py:737
++msgid "FTP user:   "
++msgstr "FTP用户："
++
++#: src/render.py:744
++msgid "Root directory:   "
++msgstr "根目录："
++
++#: src/render.py:747
++msgid " Change... "
++msgstr "更改……"
++
++#: src/render.py:760
++msgid "Maximum data transfer rate (B/s): "
++msgstr "匿名用户最大数据传输率(B/s)："
++
++##: src/render.py:836
++#msgid "Allow local system users to access the server"
++#msgstr ""
++
++##: src/render.py:837
++#msgid ""
++#"When enabled, the FTP command SITE CHMOD is allowed for local users. This "
++#"command allows the users to change the permissions on files."
++#msgstr ""
++
++##: src/render.py:838
++#msgid ""
++#"When enabled, local  users are change-rooted to their home directories after "
++#"logging in."
++#msgstr ""
++
++##: src/render.py:839
++#msgid ""
++#"When enabled, the local users listed in the file specified below are placed "
++#"in a chroot jail upon log in."
++#msgstr ""
++
++##: src/render.py:840
++#msgid ""
++#"Specifies the file containing a list of local users which are placed in a "
++#"chroot jail upon log in."
++#msgstr ""
++
++##: src/render.py:841
++#msgid ""
++#"When enabled, all non-anonymous users are logged in as the user guest, which "
++#"is the local user specified in the entry below."
++#msgstr ""
++
++##: src/render.py:842
++#msgid "Specifies the username the guest user is mapped to."
++#msgstr ""
++
++##: src/render.py:843
++#msgid "Specifies the directory vsftpd changes to after a local user logs in."
++#msgstr "当本地用户登录后，vsftpd目录改为。"
++
++##: src/render.py:844
++#msgid ""
++#"Specifies the path to a directory containing configuration files bearing the "
++#"name of local system users that contain specific settings for that user."
++#msgstr ""
++
++##: src/render.py:845
++#msgid ""
++#"Specifies the maximum rate data is transfered for local users logged into "
++#"the server in bytes per second."
++#msgstr ""
++
++##: src/render.py:846
++#msgid "Specifies the umask of created files by local users."
++#msgstr ""
++
++##: src/render.py:848
++#msgid "Allow anonymous users to access the server."
++#msgstr "允许匿名用户访问服务器。"
++
++##: src/render.py:849
++#msgid ""
++#"When enabled, anonymous users are allowed to create nre directories within a "
++#"parent directory which has write permissions."
++#msgstr ""
++
++##: src/render.py:850
++#msgid "Allow anonymous users to upload files to the server."
++#msgstr "允许匿名用户上传文件到服务器。"
++
++##: src/render.py:851
++#msgid "When enabled, the anonymous user is not asked for a password."
++#msgstr ""
++
++##: src/render.py:852
++#msgid ""
++#"When enabled, anonymous users are only allowed to download world-readable "
++#"files."
++#msgstr ""
++
++##: src/render.py:853
++#msgid "Allow anonymous to use SSL"
++#msgstr "允许匿名用户使用SSL"
++
++##: src/render.py:854
++#msgid ""
++#"When eabled, all files uploaded by anonymous users are owned by the user "
++#"specified below."
++#msgstr ""
++
++##: src/render.py:855
++#msgid "Specifies the ownership of anonymously uploaded files."
++#msgstr ""
++
++##: src/render.py:856
++#msgid ""
++#"Specifies the local user account (listed in /etc/passwd) used for the "
++#"anonymous FTP user."
++#msgstr ""
++
++##: src/render.py:857
++#msgid ""
++#"Specifies the directory vsftpd changes to after an anonymous user logs in."
++#msgstr ""
++
++##: src/render.py:858
++#msgid ""
++#"Specifies the maximum data transfer rate for anonymous users in bytes per "
++#"second."
++#msgstr ""
++
++##: src/render.py:859
++#msgid "Specifies the umas of created files by anonymous user."
++#msgstr ""
++
++#: src/render.py:987
++msgid "The following is a list of directives which affect directories"
++msgstr "以下选项用于目录管理"
++
++#: src/render.py:994
++msgid "Allow users to view directory lists"
++msgstr "允许用户查看目录列表"
++
++#: src/render.py:998
++msgid "Use localtime instead of GMT"
++msgstr "使用本地时间替换GMT（格林威治平均时间）"
++
++#: src/render.py:1002
++msgid "List files beginning with a dot (except of \".\" and \"..\" files)"
++msgstr "列出以.开头的文件(当前目录\".\"和上级目录\"..\"除外)"
++
++#: src/render.py:1006
++msgid ""
++"Show 'ftp' as the user and group instead of real user (group) of each file"
++msgstr ""
++"显示文件用户和组为“ftp”替换真实用户和组"
++
++#: src/render.py:1010
++msgid "Enable using text names for UID and GID (May slow performance)"
++msgstr "启用UID和GID文本名称（可能会降低性能）"
++
++#: src/render.py:1017
++msgid "Directory mesages"
++msgstr "目录信息"
++
++#: src/render.py:1022
++msgid "Enable display messages from files with name:"
++msgstr "启用目录信息显示，从以下文件中获得显示信息："
++
++#: src/render.py:1034
++msgid "File access options"
++msgstr "文件存取选项"
++
++#: src/render.py:1039
++msgid "Deny access to all files match the regular expression specified below:"
++msgstr "拒绝访问任何匹配下面的正则表达式的文件："
++
++#: src/render.py:1046
++msgid "Hide all files that match the regular expression specified below:"
++msgstr "隐藏所有匹配下面指定的正则表达式的文件："
++
++##: src/render.py:1054
++#msgid "When enabled, users are allowed to view directory lists."
++#msgstr ""
++
++##: src/render.py:1055
++#msgid ""
++#"When enabled, directory listings reveal the local time for the computer "
++#"instead of GMT"
++#msgstr ""
++
++##: src/render.py:1056
++#msgid ""
++#"When enabled, files beginning with a dot (.) are listed in directory "
++#"listings, with the exception of the . and .. files."
++#msgstr ""
++
++##: src/render.py:1057
++#msgid ""
++#"When enabled, all directory listings show ftp as the user and group for each "
++#"file."
++#msgstr ""
++
++##: src/render.py:1058
++#msgid ""
++#"By default, numeric IDs are shown in the user and group fields of directory "
++#"listings. You can get textual names by enabling this parameter. \n"
++#"It is off for performance reasons."
++#msgstr ""
++
++##: src/render.py:1060
++#msgid ""
++#"When enabled, a message is displayed whenever a user enters a directory with "
++#"a message file specified below as \"Message files:\""
++#msgstr ""
++
++##: src/render.py:1061
++#msgid "Specifies the name of the message file:"
++#msgstr ""
++
++##: src/render.py:1062
++#msgid ""
++#"This option can be used to set a pattern for filenames (and directory names "
++#"etc.) which should not be accessible in any way."
++#msgstr ""
++
++##: src/render.py:1063
++#msgid ""
++#"This option can be used to set a pattern for filenames (and directory names "
++#"etc.) which should be hidden from directory listings."
++#msgstr ""
++
++#: src/render.py:1125
++msgid ""
++"The following is a list of directives which affect vsftpd's logging behavior."
++msgstr ""
++"以下选项用于修改vsftpd日志记录"
++
++#: src/render.py:1133
++msgid "Enable dual looging"
++msgstr "启用双日志"
++
++#: src/render.py:1137
++msgid "Log all FTP commands and respones (useful for debugging)"
++msgstr "记录所有文件命令和响应（通常用于调试）"
++
++#: src/render.py:1141
++msgid "Sent all standard log messages to system logger"
++msgstr "发送所有标准日志信息到系统记录"
++
++#: src/render.py:1145
++msgid "Log connections and file transfer information"
++msgstr "记录连接和文件传送信息"
++
++#: src/render.py:1149
++msgid "Use standard format for wu-compatible log file"
++msgstr "wu-compatible日志文件使用标准格式"
++
++#: src/render.py:1156
++msgid "Specify the standard log file:"
++msgstr "指定标准日志文件："
++
++#: src/render.py:1163
++msgid "Specify the wu-ftpd-compatible file:"
++msgstr "指定wu-ftpd-compatible文件："
++
++##: src/render.py:1174
++#msgid ""
++#"When enabled, vsftpd writes two files simultaneously: wu-ftpd compatible log "
++#"and standard file (both specified below)."
++#msgstr ""
++
++##: src/render.py:1175
++#msgid ""
++#"When enabled (without wu-compatible log file), all FTP commands and "
++#"responses are logged. (Useful for debugging)."
++#msgstr ""
++
++##: src/render.py:1176
++#msgid "When enabled, all logging normally written to the standard vsftpd log."
++#msgstr ""
++
++##: src/render.py:1177
++#msgid ""
++#"When enabled, vsftpd logs connections and file transfer information are "
++#"logged to the standard log and connections to wu-ftpd compatible log."
++#msgstr ""
++
++##: src/render.py:1178
++#msgid ""
++#"When enabled, only a wu-ftpd-compatible file transfer log is written to the "
++#"log. This file only logs file transfers."
++#msgstr ""
++
++##: src/render.py:1179
++#msgid ""
++#"Specifies the vsftpd log file. To use this file, beware that system log is "
++#"disabled..."
++#msgstr ""
++
++##: src/render.py:1180
++#msgid "Specifies the wu-ftpd-compatible log file."
++#msgstr ""
++
++#: src/render.py:1251
++msgid ""
++"The following is a list of directives which affect how vsftpd interacts "
++"whith the network"
++msgstr "以下选项用于修改vsftpd网络配置"
++
++#: src/render.py:1263
++msgid ""
++"Run vsftpd with enough privileges to open port 20 on the server during "
++"active mode data transfers"
++msgstr "当以激活模式进行数据传送时，在服务器上打开20端口"
++
++#: src/render.py:1267
++msgid ""
++"<i>Disabling this option allows vsftpd to run with less privileges, but may "
++"be incompatible with some FTP clients</i>"
++msgstr "<i>关闭这个选项允许vsftpd以较小特权运行，这样有可能出现与FTP客户端不一致</i>"
++
++#: src/render.py:1277
++msgid "Maximum amount of time to stall the data transfer:   "
++msgstr "数据传输最大停滞时间："
++
++#: src/render.py:1280 src/render.py:1286 src/render.py:1342 src/render.py:1383
++msgid "   seconds"
++msgstr "   秒 "
++
++#: src/render.py:1283
++msgid "Maximum amount of time between commands from client:   "
++msgstr "客户端输入命令最大时间间隔："
++
++#: src/render.py:1289
++msgid "Port on wich vsftpd listens for network connection:   "
++msgstr "vsftpd网络监听端口："
++
++#: src/render.py:1294
++msgid ""
++"Maximum number of simultaneous clients allowed to connect to the server:   "
++msgstr ""
++"客户端连接服务器最大并发数："
++
++#: src/render.py:1299
++msgid ""
++"Maximum of clients allowed to connect from the same source IP address:   "
++msgstr ""
++"允许来自同一ip的客户端最大连接数："
++
++##: src/render.py:1317
++#msgid ""
++#" \n"
++#"        I did to boxes, first anonymousBox, where is checkbox to allow other "
++#"options\n"
++#"        and second, where I take other options. It is simple to set "
++#"sensitivity to all options\n"
++#"        in one command \n"
++#"        "
++#msgstr ""
++
++#: src/render.py:1323
++msgid "Active connection"
++msgstr "主动连接（Active）"
++
++#: src/render.py:1325
++msgid "<i>Active connection: Data is sent through same port as commands</i>"
++msgstr "<i>主动连接：数据和指令由同一端口传输</i>"
++
++#: src/render.py:1331
++msgid "Enable active connections"
++msgstr "启用主动连接"
++
++#: src/render.py:1339
++msgid "Maximum amount of time a client has to respond to a data connection:   "
++msgstr "客户端数据连接最大响应时间："
++
++#: src/render.py:1345
++msgid "Port used for active data connections:   "
++msgstr "主动连接使用端口："
++
++##: src/render.py:1358
++#msgid ""
++#" \n"
++#"        I did to boxes, first anonymousBox, where is checkbox to allow other "
++#"options\n"
++#"        and second, where I take other options. It is simple to set "
++#"sensitivity to al options\n"
++#"        in one command \n"
++#"        "
++#msgstr ""
++
++#: src/render.py:1364
++msgid "Passive connections"
++msgstr "被动连接(Passive)"
++
++#: src/render.py:1366
++msgid ""
++"<i>Passive connection: Data are sending throw different ports as commands</i>"
++msgstr "<i>被动连接：数据和指令分别由不同的端口传输</i>"
++
++#: src/render.py:1372
++msgid "Enable passive connections"
++msgstr "启用被动连接"
++
++#: src/render.py:1380
++msgid "Maximum amount of time for a client to establish a connection:   "
++msgstr "建立客户端连接最大时间："
++
++#: src/render.py:1386
++msgid "Range of ports to bind by passive data transfer:   "
++msgstr "被动连接端口范围："
++
++#: src/render.py:1402
++msgid ""
++"Check to make sure, that data connections are originating from the same IP"
++msgstr ""
++"检查，保证数据连接来自同一IP源"
++
++##: src/render.py:1435
++#msgid ""
++#"When enabled, vsftpd runs with enough privileges to open port 20 on the "
++#"server during active mode data transfers."
++#msgstr ""
++
++##: src/render.py:1436
++#msgid ""
++#"Specifies maximum amount of time data transfers are allowed to stall, in "
++#"seconds."
++#msgstr ""
++
++##: src/render.py:1437
++#msgid ""
++#"Specifies the maximum amount of time between commands from a remote client."
++#msgstr ""
++
++##: src/render.py:1438
++#msgid "Spcifies the port on which vsftpd listens for network connections."
++#msgstr ""
++
++##: src/render.py:1439
++#msgid ""
++#"Specifies the maximum number of simultaneous clients allowed to connect to "
++#"the server when it is running in standalone mode."
++#msgstr ""
++
++##: src/render.py:1440
++#msgid ""
++#"Specifies the maximum of clients allowed to connected from the same source "
++#"IP address"
++#msgstr ""
++
++##: src/render.py:1441
++#msgid "When enabled, active mode connects are allowed."
++#msgstr ""
++
++##: src/render.py:1442
++#msgid ""
++#"Specifies maximum amount of time a client using active mode has to respond "
++#"to a data connection, in seconds."
++#msgstr ""
++
++##: src/render.py:1443
++#msgid "Specifies the port used for active data connections."
++#msgstr ""
++
++##: src/render.py:1444
++#msgid "When enabled, passive mode connects are allowed."
++#msgstr ""
++
++##: src/render.py:1445
++#msgid ""
++#"Specifies the amount of time for a client using passive mode to establish a "
++#"connection."
++#msgstr ""
++
++##: src/render.py:1446
++#msgid ""
++#"Specifies the lowest possible port sent to the FTP clients for passive mode "
++#"connections."
++#msgstr ""
++
++##: src/render.py:1447
++#msgid ""
++#"Specifies the highest possible port sent to the FTP clients for passive mode "
++#"connections."
++#msgstr ""
++
++##: src/render.py:1448
++#msgid ""
++#"Only enable if you know what you are doing! The only legitimate use for this "
++#"is in some form of secure tunnelling scheme, or perhaps to facilitate FXP "
++#"support."
++#msgstr ""
++
++#: src/render.py:1534
++msgid "Read only xferlog in graphical format"
++msgstr "在图形格式下xfer日志只读"
++
++#: src/render.py:1561
++msgid "  Reload log  "
++msgstr "重载日志"
++
++##: src/render.py:1572
++#msgid "When changed day in calendar"
++#msgstr "当在日历中改变日期时"
++
++##: src/render.py:1583
++#msgid "When changed year or month in calendar"
++#msgstr "当在日历中改变年份和月份时"
++
++##: src/render.py:1595
++#msgid "When changed focused line in ipList "
++#msgstr "当在ip列表中改变焦点行时"
++
++#: src/render.py:1627
++msgid "<b>Log doesn't exists, try to select one in 'Logging' menu</b>"
++msgstr "<b>日志不存在，请在“日志”项中选择一项</b>"
++
++#: src/render.py:1631
++msgid "<b>Log is empty</b>"
++msgstr "<b>日志为空</b>"
++
++#: src/system-config-vsftpd.glade:9
++msgid "Very Secure FTP Daemon Configuration"
++msgstr "VSFTP守护进程配置工具"
++
++#: src/system-config-vsftpd.glade:23
++msgid "_File"
++msgstr "文件(_F)"
++
++#: src/system-config-vsftpd.glade:57
++msgid "_Reload"
++msgstr "重载(_R)"
++
++#: src/system-config-vsftpd.glade:91
++msgid "_Help"
++msgstr "帮助(_H)"
++
++#: src/system-config-vsftpd.glade:239
++msgid ""
++"Save and restart server\n"
++"Only save\n"
++"Do not save"
++msgstr ""
++"保存并重启服务\n"
++"仅保存\n"
++"不保存"
+diff -uraN system-config-vsftpd-0.5.1.old/src/exitDialog.py system-config-vsftpd-0.5.1.change/src/exitDialog.py
+--- system-config-vsftpd-0.5.1.old/src/exitDialog.py	2012-03-13 13:27:05.353031039 +0800
++++ system-config-vsftpd-0.5.1.change/src/exitDialog.py	2012-03-13 14:11:53.996215618 +0800
+@@ -52,10 +52,10 @@
+         box = self.renderVBox( self.window.vbox, packing=[True, True] )
+ 
+         #: If you change this, you have to change numbers in __close_application and in configParser !!!
+-        offer = [ 'Save configuration and exit',
+-                  'Save configuration, restart server and exit',
+-                  'Don\'t save configuration and exit',
+-                  'Back to main window'
++        offer = [ _('Save configuration and exit'),
++                  _('Save configuration, restart server and exit'),
++                  _('Don\'t save configuration and exit'),
++                  _('Back to main window')
+                 ]
+ 
+         self.combo = self.renderComboBox( box, align=[10,10,10,10], list=offer, packing=[False, False] )
+diff -uraN system-config-vsftpd-0.5.1.old/src/render.py system-config-vsftpd-0.5.1.change/src/render.py
+--- system-config-vsftpd-0.5.1.old/src/render.py	2012-03-13 13:27:05.354030239 +0800
++++ system-config-vsftpd-0.5.1.change/src/render.py	2012-03-14 10:29:34.850102182 +0800
+@@ -164,10 +164,10 @@
+     def add_mouse_hints( self ):
+ 
+         self.mouseHints = { 
+-             self.chGeneralUseTCPWrappers     : _('Use TCP wrappers to grant access to the server.'),
+-             self.downloadEnable              : _('Enable download files from server'),
+-             self.uploadEnable                : _('Enable upload files. ( see in Users -> Anonymous users -> Allow upload files )'),
+-             self.rGeneralStandaloneMode      : _('Run vsftpd in standalone mode.'),
++             self.chGeneralUseTCPWrappers     : 'Use TCP wrappers to grant access to the server.',
++             self.downloadEnable              : 'Enable download files from server',
++             self.uploadEnable                : 'Enable upload files. ( see in Users -> Anonymous users -> Allow upload files )',
++             self.rGeneralStandaloneMode      : 'Run vsftpd in standalone mode.',
+              self.rGeneralNotStandaloneMode   : _('Do not run in standalone mode.')
+         }
+ 
+@@ -230,7 +230,7 @@
+ 
+ 
+         # frame - Server Status
+-        [frame, box] = self.renderFrame( 'Server status' )
++        [frame, box] = self.renderFrame( _('Server status') )
+         self.mainBox.pack_start( frame, False, True, 0 )
+ 
+         # box for ComboBoxEntry with IPv4 or IPv6 option
+@@ -307,7 +307,7 @@
+         # server is running
+         if self.shell.status[0]: 
+             self.lServerStatus.set_label( "<b>"+_("Server is stopped")+"</b>" )
+-            self.lServerAction.set_label( "Click this button to start ftp server." )
++            self.lServerAction.set_label( _("Click this button to start ftp server.") )
+             self.bServerAction.set_label( "         "+_("Start FTP Server")+"          " )
+             self.bServerAction.set_image( gtk.image_new_from_stock( 'gtk-media-play', 3 ) )
+         else:
+@@ -491,15 +491,15 @@
+     def add_mouse_hints( self ):
+ 
+         self.mouseHints = { 
+-             self.rAccessBannerString    : _('Specified string is displayed when a connection is established to the server.'),
+-             self.eAccessBannerString    : _('Specified string is displayed when a connection is established to the server.'),
+-             self.rAccessBannerFile      : _('Specified file containing text displayed when a connection is established to the server.'),
+-             self.eAccessBannerFile      : _('Specified file containing text displayed when a connection is established to the server.'),
+-             self.chAccessEmailBansFile  : _('This directive specifies the file containing a list of anonymous email passwords which are not permitted to the server.'),
+-             self.eAccessEmailBansFile   : _('This file containing a list of anonymous email passwords which are not permitted to the server.'),
+-             self.chAccessEnableUserList : _('When enabled the users listed in the file below are denied or allowed access to the server ( see Deny users directive below ).'),
+-             self.chAccessEnableDeny     : _('When enabled the users listed in the file below are DENIED to access to the server, otherwise ALLOWED'),
+-             self.eAccessUserListFile    : _('This file containing a list of users which are allowed or denied to access to the server depends on directive above')
++             self.rAccessBannerString    : 'Specified string is displayed when a connection is established to the server.',
++             self.eAccessBannerString    : 'Specified string is displayed when a connection is established to the server.',
++             self.rAccessBannerFile      : 'Specified file containing text displayed when a connection is established to the server.',
++             self.eAccessBannerFile      : 'Specified file containing text displayed when a connection is established to the server.',
++             self.chAccessEmailBansFile  : 'This directive specifies the file containing a list of anonymous email passwords which are not permitted to the server.',
++             self.eAccessEmailBansFile   : 'This file containing a list of anonymous email passwords which are not permitted to the server.',
++             self.chAccessEnableUserList : 'When enabled the users listed in the file below are denied or allowed access to the server ( see Deny users directive below ).',
++             self.chAccessEnableDeny     : 'When enabled the users listed in the file below are DENIED to access to the server, otherwise ALLOWED',
++             self.eAccessUserListFile    : 'This file containing a list of users which are allowed or denied to access to the server depends on directive above'
+         }
+ 
+     def change( self, widget ):
+@@ -556,8 +556,8 @@
+     def build( self ):
+ 
+         # render main window from click on the left side
+-        futils.renderMainLabel( self.mainBox, self.ico_path+"usersH.png", 'Users', 
+-                'the following is a list of directives which charakterize the way local and anonymous users access the server.' )
++        futils.renderMainLabel( self.mainBox, self.ico_path+"usersH.png", _('Users'), 
++                _('the following is a list of directives which charakterize the way local and anonymous users access the server.') )
+         # ------------------------------------------------------------------------------------- #
+ 
+ 
+@@ -573,10 +573,10 @@
+         # Box for rendering system box
+         box = self.renderVBox( )
+ 
+-        self.usersBox = self.renderNBPage( self.usersNotebook, 'System users', align=[10,10,10,10] )
++        self.usersBox = self.renderNBPage( self.usersNotebook, _('System users'), align=[10,10,10,10] )
+         
+         # [local_enable]
+-        self.chAllowLocalUsers = self.renderCheckButton( self.usersBox, 'Allow local users', active=True )
++        self.chAllowLocalUsers = self.renderCheckButton( self.usersBox, _('Allow local users'), active=True )
+         futils.makeConnect( self.chAllowLocalUsers, [self.__allowLocalUsers] + self.generalFunctions[1:] )
+ 
+         # Separator
+@@ -587,46 +587,46 @@
+         self.systemUsersBox = self.renderVBox( self.usersBox, [0, 0, 0, 0] )
+         
+         # [chmod_enable]
+-        self.chUsersChmodEnable = self.renderCheckButton( self.systemUsersBox, 'Allow users to change the permissions on files' )
++        self.chUsersChmodEnable = self.renderCheckButton( self.systemUsersBox, _('Allow users to change the permissions on files') )
+         futils.makeConnect( self.chUsersChmodEnable, self.generalFunctions )
+ 
+         # [chroot_local_user]
+-        self.chUsersChangeRoot = self.renderCheckButton( self.systemUsersBox, 'Change root directory for the users to their home directories' )
++        self.chUsersChangeRoot = self.renderCheckButton( self.systemUsersBox, _('Change root directory for the users to their home directories') )
+         futils.makeConnect( self.chUsersChangeRoot, self.generalFunctions )
+ 
+         # [?]
+-        self.chPasswdChRootEnable = self.renderCheckButton( self.systemUsersBox, 'Change root directory based on the occurece of the "." in the home '
+-                                                                                   'directory field within /etc/passwd' )
++        self.chPasswdChRootEnable = self.renderCheckButton( self.systemUsersBox, _('Change root directory based on the occurece of the "." in the home '
++                                                                                   'directory field within /etc/passwd') )
+         futils.makeConnect( self.chPasswdChRootEnable, self.generalFunctions )
+ 
+         # Separator
+         self.renderHSeparator( self.systemUsersBox, [5, 5, 0, 0], packing=[False,False] )
+                
+         # frame Chroot jail 
+-        [frame, box] = self.renderFrame( 'Chroot Jail' )
++        [frame, box] = self.renderFrame( _('Chroot Jail') )
+         self.systemUsersBox.pack_start( frame, False, True, 0 )
+ 
+         # [chroot_list_enable]
+         box1 = self.renderHBox( box, [0, 0, 0, 10] )
+-        self.chRootListEnable = self.renderCheckButton( box1, 'Place only users from list below to "chroot jail"' )
++        self.chRootListEnable = self.renderCheckButton( box1, _('Place only users from list below to "chroot jail"') )
+         futils.makeConnect( self.chRootListEnable, [self.__enableRootList_toggled] + self.generalFunctions[1:] )
+ 
+         # [chroot_list_file]
+         box1 = self.renderHBox( box, [0, 10, 10, 10] )
+         self.eRootListEnable = self.renderEntry( box1 )
+         futils.makeConnect( self.eRootListEnable, self.generalFunctions )
+-        self.bRootListEnable = self.renderButton( box1, label='Change...', callbacks={"pressed": self.change} )
++        self.bRootListEnable = self.renderButton( box1, label=_('Change...'), callbacks={"pressed": self.change} )
+ 
+         # horizontal separator
+         self.renderHBox( self.systemUsersBox, [5, 5, 0, 0] )
+ 
+         # frame with Guest
+-        [frame, box] = self.renderFrame( 'Guest' )
++        [frame, box] = self.renderFrame( _('Guest') )
+         self.systemUsersBox.pack_start( frame, False, True, 0 )
+ 
+         # [guest_enable]
+         box1 = self.renderHBox( box, [0, 0, 0, 10] )
+-        self.chGuestEnable = self.renderCheckButton( box1, 'Change all non-anonymous users logged in to the user:' )
++        self.chGuestEnable = self.renderCheckButton( box1, _('Change all non-anonymous users logged in to the user:') )
+         futils.makeConnect( self.chGuestEnable, [self.__guestEnable_toggled] + self.generalFunctions[1:] )
+ 
+         # [guest_username]
+@@ -638,34 +638,34 @@
+         self.renderHBox( self.systemUsersBox, [5, 5, 0, 0] )
+ 
+         # [local_root]
+-        self.lLocalRoot = self.renderLabel( box, 'Specify the directory <i>vsftpd</i> changes to after a local user logs in:' )
++        self.lLocalRoot = self.renderLabel( box, _('Specify the directory <i>vsftpd</i> changes to after a local user logs in:') )
+         box1 = self.renderHBox( box, [0, 10, 10, 10] )
+         self.eLocalRoot = self.renderEntry( box1 )
+         futils.makeConnect( self.eLocalRoot, self.generalFunctions )
+-        self.bLocalRoot = self.renderButton( box1, label='Change...', callbacks={"pressed": self.change} )
++        self.bLocalRoot = self.renderButton( box1, label=_('Change...'), callbacks={"pressed": self.change} )
+ 
+         # horizontal separator
+         self.renderHBox( self.systemUsersBox, [5, 5, 0, 0] )
+ 
+         # [user_config_dir]
+-        self.lUserConfigDir = self.renderLabel( box, 'Specify the path to a directory containing configuration files bearing the name of local system\n'
+-                                                    'users that contain specific settings for that user', line_wrap_mode=gtk.WRAP_NONE )
++        self.lUserConfigDir = self.renderLabel( box, _('Specify the path to a directory containing configuration files bearing the name of local system\n'
++                                                    'users that contain specific settings for that user'), line_wrap_mode=gtk.WRAP_NONE )
+         box1 = self.renderHBox( box, [0, 10, 10, 10] )
+         self.eUserConfigDir = self.renderEntry( box1 )
+         futils.makeConnect( self.eUserConfigDir, self.generalFunctions )
+-        self.bUserConfigDir = self.renderButton( box1, label='Change...', callbacks={"pressed": self.change} )
++        self.bUserConfigDir = self.renderButton( box1, label=_('Change...'), callbacks={"pressed": self.change} )
+ 
+         # Separator
+         self.renderHSeparator( self.systemUsersBox, [5, 5, 0, 0], packing=[False,False] )
+ 
+         # [local_max_rate]
+         box = self.renderHBox( self.systemUsersBox, [0, 0, 0, 0] )
+-        label = self.renderLabel( None, 'Maximum data transfer rate (B/s):   ' ) 
++        label = self.renderLabel( None, _('Maximum data transfer rate (B/s):   ') ) 
+         self.sLocalMaxRate = self.renderSpinButton( None, [0.0, 0.0, 999999999.0, 1.0, 100.0, 0.0], 0, 0 )
+         futils.makeConnect( self.sLocalMaxRate, self.generalFunctions )
+ 
+         # [local_umask]
+-        self.lLocalUmask = self.renderLabel( None, 'Umask for file creation: ' )
++        self.lLocalUmask = self.renderLabel( None, _('Umask for file creation: ') )
+         self.eLocalUmask = self.renderEntry( None, 3 )
+         futils.makeConnect( self.eLocalUmask, self.generalFunctions )
+ 
+@@ -679,10 +679,10 @@
+         # Anonymous user
+ 
+         # Box for rendering system box
+-        self.anonymousBox = self.renderNBPage( self.usersNotebook, 'Anonymous user', align=[10,10,10,10] )
++        self.anonymousBox = self.renderNBPage( self.usersNotebook, _('Anonymous user'), align=[10,10,10,10] )
+ 
+         # [anonymous_enable]
+-        self.chAllowAnonymousUser = self.renderCheckButton( self.anonymousBox, 'Allow anonymous user', active=True )
++        self.chAllowAnonymousUser = self.renderCheckButton( self.anonymousBox, _('Allow anonymous user'), active=True )
+         futils.makeConnect( self.chAllowAnonymousUser,[self.__allowAnonymousUser] + self.generalFunctions[1:] )
+         
+         # Separator
+@@ -693,37 +693,37 @@
+         self.anonymousUserBox = self.renderVBox( self.anonymousBox, [0, 0, 0, 0] )
+ 
+         # [anon_mkdir_write_enable]
+-        self.chAllowCreatingNewDirectories = self.renderCheckButton( self.anonymousUserBox, 'Allow creating new directories' )
++        self.chAllowCreatingNewDirectories = self.renderCheckButton( self.anonymousUserBox, _('Allow creating new directories') )
+         futils.makeConnect( self.chAllowCreatingNewDirectories, self.generalFunctions ) 
+ 
+         # [anon_upload_enable]
+-        self.chAllowUploadFiles = self.renderCheckButton( self.anonymousUserBox, 'Allow upload files' )
++        self.chAllowUploadFiles = self.renderCheckButton( self.anonymousUserBox, _('Allow upload files') )
+         futils.makeConnect( self.chAllowUploadFiles, self.generalFunctions ) 
+ 
+         # [no_anon_password]
+-        self.chAskForPassword = self.renderCheckButton( self.anonymousUserBox, 'Do not ask for a password' )
++        self.chAskForPassword = self.renderCheckButton( self.anonymousUserBox, _('Do not ask for a password') )
+         futils.makeConnect( self.chAskForPassword, self.generalFunctions ) 
+ 
+         # [anon_world_readable_only]
+         box1 = self.renderHBox( self.anonymousUserBox, [0, 0, 0, 0] )
+-        self.chAnonymousWorldOnlyEnable = self.renderCheckButton( box1, 'Allow to download only world-readable files' )
++        self.chAnonymousWorldOnlyEnable = self.renderCheckButton( box1, _('Allow to download only world-readable files') )
+         futils.makeConnect( self.chAnonymousWorldOnlyEnable, self.generalFunctions )
+ 
+         # [allow_anon_ssl]
+         box1 = self.renderHBox( self.anonymousUserBox, [0, 0, 0, 0] )
+-        self.chAnonymousUseSSL = self.renderCheckButton( box1, 'Allow anonymous to use ssl connection' )
++        self.chAnonymousUseSSL = self.renderCheckButton( box1, _('Allow anonymous to use ssl connection') )
+         futils.makeConnect( self.chAnonymousUseSSL, self.generalFunctions )
+ 
+         # Separator
+         self.renderHSeparator( self.anonymousUserBox, [5, 5, 0, 0], packing=[False,False] )
+                
+         # frame with Changing owner
+-        [frame, box] = self.renderFrame( 'Changing owner' )
++        [frame, box] = self.renderFrame( _('Changing owner') )
+         self.anonymousUserBox.pack_start( frame, False, True, 0 )
+ 
+         # [chown_uploads]
+         box2 = self.renderHBox( box, [0, 0, 0, 10] )
+-        self.chAnonymousChOwner = self.renderCheckButton( box2, 'Change owner on all uploaded files to user below ' )
++        self.chAnonymousChOwner = self.renderCheckButton( box2, _('Change owner on all uploaded files to user below ') )
+         futils.makeConnect( self.chAnonymousChOwner, [self.__chownUploads_toggled] + self.generalFunctions[1:] )
+         # Entry with box with path to file
+         box2 = self.renderHBox( box, [0, 10, 10, 10] )
+@@ -735,17 +735,17 @@
+         box = self.renderHBox( self.anonymousUserBox, [0, 0, 0, 0] )
+ 
+         # [ftp_username]
+-        self.lAnonymousUserName = self.renderLabel( None, 'FTP user:   ' ) 
++        self.lAnonymousUserName = self.renderLabel( None, _('FTP user:   ') ) 
+         self.eAnonymousUserName = self.renderEntry( None, 30 )
+         futils.makeConnect( self.eAnonymousUserName, self.generalFunctions )
+         
+         (alignment1, box1) = self.renderVBox( None, [5, 5, 0, 0] )
+ 
+         # [anon_root]
+-        self.lAnonymousRootDir = self.renderLabel( None, 'Root directory:   ' ) 
++        self.lAnonymousRootDir = self.renderLabel( None, _('Root directory:   ') ) 
+         self.eAnonymousRootDir = self.renderEntry( None, 30 )
+         futils.makeConnect( self.eAnonymousRootDir, self.generalFunctions )
+-        self.bAnonymousRootDir = self.renderButton( None, label=' Change... ', callbacks={"pressed": self.change} )
++        self.bAnonymousRootDir = self.renderButton( None, label=_(' Change... '), callbacks={"pressed": self.change} )
+ 
+         tableModel = [ [ self.lAnonymousUserName, self.eAnonymousUserName, None ],
+                        [ alignment1 ],
+@@ -758,12 +758,12 @@
+         self.renderHSeparator( self.anonymousUserBox, [15, 15, 0, 0], packing=[False,False] )
+                
+         # [anon_max_rate]
+-        self.lAnonymousMaxRate = self.renderLabel( None, 'Maximum data transfer rate (B/s): ' )
++        self.lAnonymousMaxRate = self.renderLabel( None, _('Maximum data transfer rate (B/s): ') )
+         self.sAnonymousMaxRate = self.renderSpinButton( None, [0.0, 0.0, 999999999.0, 1.0, 100.0, 0.0], 0, 0 )
+         futils.makeConnect( self.sAnonymousMaxRate, self.generalFunctions )
+         
+         # [anon_umask]
+-        self.lAnonUmask = self.renderLabel( None, 'Umask for file creation: ' )
++        self.lAnonUmask = self.renderLabel( None, _('Umask for file creation: ') )
+         self.eAnonUmask = self.renderEntry( None, 3 )
+         futils.makeConnect( self.eAnonUmask, self.generalFunctions )
+ 
+@@ -985,42 +985,42 @@
+     def build( self ):
+ 
+         # render main window from click on the left side
+-        futils.renderMainLabel( self.mainBox, self.ico_path+"directoryH.png", 'Directory Options', 'The following is a list of directives which affect directories' )
++        futils.renderMainLabel( self.mainBox, self.ico_path+"directoryH.png", _('Directory Options'), _('The following is a list of directives which affect directories') )
+         # ------------------------------------------------------------------------------------- #
+ 
+ 
+         self.directoryBox = self.renderVBox( self.mainBox, [5, 0, 0, 0] )
+ 
+         # [dirlist_enable]
+-        self.chAllowViewDirectories = self.renderCheckButton( self.directoryBox, 'Allow users to view directory lists' )
++        self.chAllowViewDirectories = self.renderCheckButton( self.directoryBox, _('Allow users to view directory lists') )
+         futils.makeConnect( self.chAllowViewDirectories, self.generalFunctions )
+ 
+         # [use_localtime]
+-        self.chLocalTime = self.renderCheckButton( self.directoryBox, 'Use localtime instead of GMT' )
++        self.chLocalTime = self.renderCheckButton( self.directoryBox, _('Use localtime instead of GMT') )
+         futils.makeConnect( self.chLocalTime, self.generalFunctions )
+ 
+         # [force_fot_files]
+-        self.chForceDotFiles = self.renderCheckButton( self.directoryBox, 'List files beginning with a dot (except of "." and ".." files)' )
++        self.chForceDotFiles = self.renderCheckButton( self.directoryBox, _('List files beginning with a dot (except of "." and ".." files)') )
+         futils.makeConnect( self.chForceDotFiles, self.generalFunctions ) 
+ 
+         # [hide_ids]
+-        self.chHideIDS = self.renderCheckButton( self.directoryBox, "Show 'ftp' as the user and group instead of real user (group) of each file" )
++        self.chHideIDS = self.renderCheckButton( self.directoryBox, _("Show 'ftp' as the user and group instead of real user (group) of each file") )
+         futils.makeConnect( self.chHideIDS, self.generalFunctions ) 
+ 
+         # [text_userdb_names]
+-        self.chTextUserDBNames = self.renderCheckButton( self.directoryBox, 'Enable using text names for UID and GID (May slow performance)' )
++        self.chTextUserDBNames = self.renderCheckButton( self.directoryBox, _('Enable using text names for UID and GID (May slow performance)') )
+         futils.makeConnect( self.chTextUserDBNames, self.generalFunctions )
+ 
+         # horisontal separator
+         self.renderHBox( self.directoryBox, [5, 5, 0, 0] )
+ 
+         # frame Directory messages 
+-        [frame, box] = self.renderFrame( 'Directory mesages' )
++        [frame, box] = self.renderFrame( _('Directory mesages') )
+         self.directoryBox.pack_start( frame, False, True, 0 )
+ 
+         # [dirmessage_enable]
+         box1 = self.renderHBox( box, [0, 0, 0, 10] )
+-        self.chMessagedisplay = self.renderCheckButton( box1, 'Enable display messages from files with name:' )
++        self.chMessagedisplay = self.renderCheckButton( box1, _('Enable display messages from files with name:') )
+         futils.makeConnect( self.chMessagedisplay, self.generalFunctions )
+         # [message_file]
+         box1 = self.renderHBox( box, [0, 10, 10, 10] )
+@@ -1032,19 +1032,19 @@
+         box = self.renderHBox( self.directoryBox, [0, 0, 0, 0] )
+ 
+         # frame Directory messages 
+-        [frame, box] = self.renderFrame( 'File access options' )
++        [frame, box] = self.renderFrame( _('File access options') )
+         self.directoryBox.pack_start( frame, False, True, 0 )
+ 
+         # [deny_file]
+         box1 = self.renderHBox( box, [5, 0, 0, 10] )
+-        label2 = self.renderLabel( box1, 'Deny access to all files match the regular expression specified below:', line_wrap_mode=gtk.WRAP_NONE ) 
++        label2 = self.renderLabel( box1, _('Deny access to all files match the regular expression specified below:'), line_wrap_mode=gtk.WRAP_NONE ) 
+         box1 = self.renderHBox( box, [0, 10, 10, 10] )
+         self.eDenyFile = self.renderEntry( box1, 30 )
+         futils.makeConnect( self.eDenyFile, self.generalFunctions )
+ 
+         # [hide_file]
+         box1 = self.renderHBox( box, [0, 0, 0, 10] )
+-        label3 = self.renderLabel( box1, 'Hide all files that match the regular expression specified below:', line_wrap_mode=gtk.WRAP_NONE )
++        label3 = self.renderLabel( box1, _('Hide all files that match the regular expression specified below:'), line_wrap_mode=gtk.WRAP_NONE )
+         box1 = self.renderHBox( box, [0, 10, 10, 10] )
+         self.eHideFile = self.renderEntry( box1, 30 )
+         futils.makeConnect( self.eHideFile, self.generalFunctions )
+@@ -1122,8 +1122,8 @@
+     def build( self ):
+ 
+         # render main window from click on the left side
+-        futils.renderMainLabel( self.mainBox, self.ico_path+"loggingH.png", 'Logging', 
+-                'The following is a list of directives which affect vsftpd\'s logging behavior.' )
++        futils.renderMainLabel( self.mainBox, self.ico_path+"loggingH.png", _('Logging'), 
++                _('The following is a list of directives which affect vsftpd\'s logging behavior.') )
+         # ------------------------------------------------------------------------------------- #
+ 
+ 
+@@ -1131,41 +1131,41 @@
+         self.logBox = self.renderVBox( self.mainBox, [5, 0, 0, 0] )
+ 
+         # [dual_log_enable]
+-        self.chAllowDualLog = self.renderCheckButton( self.logBox, 'Enable dual looging', active=True )
++        self.chAllowDualLog = self.renderCheckButton( self.logBox, _('Enable dual looging'), active=True )
+         futils.makeConnect( self.chAllowDualLog, self.generalFunctions )
+ 
+         # [log_ftp_protocol]
+-        self.chLogFTPProtocol = self.renderCheckButton( self.logBox, 'Log all FTP commands and respones (useful for debugging)' )
++        self.chLogFTPProtocol = self.renderCheckButton( self.logBox, _('Log all FTP commands and respones (useful for debugging)') )
+         futils.makeConnect( self.chLogFTPProtocol, self.generalFunctions )
+ 
+         # [syslog_enable]
+-        self.chSystemLog = self.renderCheckButton( self.logBox, 'Sent all standard log messages to system logger' )
++        self.chSystemLog = self.renderCheckButton( self.logBox, _('Sent all standard log messages to system logger') )
+         futils.makeConnect( self.chSystemLog, self.generalFunctions )
+ 
+         # [xferlog_enable]
+-        self.chXFerlogEnable = self.renderCheckButton( self.logBox, 'Log connections and file transfer information' )
++        self.chXFerlogEnable = self.renderCheckButton( self.logBox, _('Log connections and file transfer information') )
+         futils.makeConnect( self.chXFerlogEnable, self.generalFunctions )
+ 
+         # [xferlog_std_format]
+-        self.chXFerlogStandardFormat = self.renderCheckButton( self.logBox, 'Use standard format for wu-compatible log file', active=True )
++        self.chXFerlogStandardFormat = self.renderCheckButton( self.logBox, _('Use standard format for wu-compatible log file'), active=True )
+         futils.makeConnect( self.chXFerlogStandardFormat, self.generalFunctions )
+ 
+         # Separator
+         self.renderHSeparator( self.logBox, [10, 10, 0, 0], packing=[False,False] )
+                
+         # [vsftpd_log_file]
+-        self.lStandardLogFile = self.renderLabel( self.logBox, 'Specify the standard log file:' )
++        self.lStandardLogFile = self.renderLabel( self.logBox, _('Specify the standard log file:') )
+         box1 = self.renderHBox( self.logBox, [0, 10, 10, 10] )
+         self.eStandardLogFile = self.renderEntry( box1, 0 )
+         futils.makeConnect( self.eStandardLogFile, self.generalFunctions )
+-        self.bStandardLogFile = self.renderButton( box1, label='Change...', callbacks={"pressed": self.change} )
++        self.bStandardLogFile = self.renderButton( box1, label=_('Change...'), callbacks={"pressed": self.change} )
+ 
+         # [xferlog_file]
+-        self.lStandardXFerLogFile = self.renderLabel( self.logBox, 'Specify the wu-ftpd-compatible file:' )
++        self.lStandardXFerLogFile = self.renderLabel( self.logBox, _('Specify the wu-ftpd-compatible file:') )
+         box1 = self.renderHBox( self.logBox, [0, 10, 10, 10] )
+         self.eStandardXFerLogFile = self.renderEntry( box1, 0 )
+         futils.makeConnect( self.eStandardXFerLogFile, self.generalFunctions )
+-        self.bStandardXFerLogFile = self.renderButton( box1, label='Change...', callbacks={"pressed": self.change} )
++        self.bStandardXFerLogFile = self.renderButton( box1, label=_('Change...'), callbacks={"pressed": self.change} )
+ 
+         self.logBox.show( )
+ 
+@@ -1248,8 +1248,8 @@
+     def build( self ):
+ 
+         # render main window from click on the left side
+-        futils.renderMainLabel( self.mainBox, self.ico_path+"networkH.png", 'Network Options', 
+-                'The following is a list of directives which affect how vsftpd interacts whith the network' )
++        futils.renderMainLabel( self.mainBox, self.ico_path+"networkH.png", _('Network Options'), 
++                _('The following is a list of directives which affect how vsftpd interacts whith the network') )
+         # ---------------------------------------------------------------------------------------- #
+ 
+ 
+@@ -1261,12 +1261,12 @@
+         # ------------------------------------------------------------------------------------- #
+ 
+         # [connect_from_port_20]
+-        self.chConnectFromPort20 = self.renderCheckButton( self.networkBox, 'Run vsftpd with enough privileges to open port 20 on the server '
+-                                                                              'during active mode data transfers', active=True )
++        self.chConnectFromPort20 = self.renderCheckButton( self.networkBox, _('Run vsftpd with enough privileges to open port 20 on the server '
++                                                                              'during active mode data transfers'), active=True )
+         futils.makeConnect( self.chConnectFromPort20, self.generalFunctions )
+ 
+-        label = self.renderLabel( self.networkBox, '<i>Disabling this option allows vsftpd to run with less privileges, but may be incompatible '
+-                                                     'with some FTP clients</i>', line_wrap_mode=gtk.WRAP_NONE )
++        label = self.renderLabel( self.networkBox, _('<i>Disabling this option allows vsftpd to run with less privileges, but may be incompatible '
++                                                     'with some FTP clients</i>'), line_wrap_mode=gtk.WRAP_NONE )
+ 
+ 
+         # horizontal separator
+@@ -1275,29 +1275,29 @@
+         box = self.renderHBox( self.networkBox, [5, 0, 0, 0] )
+ 
+         # [data_connection_timeout]
+-        self.lDataConTimeOut = self.renderLabel( None, 'Maximum amount of time to stall the data transfer:   ' ) 
++        self.lDataConTimeOut = self.renderLabel( None, _('Maximum amount of time to stall the data transfer:   ') ) 
+         self.sDataConTimeOut = self.renderSpinButton( None, [300.0, 0.0, 3600.0, 1.0, 100.0, 0.0], 0, 0 )
+         futils.makeConnect( self.sDataConTimeOut, self.generalFunctions )
+-        self.lDataConTimeOut2 = self.renderLabel( None, '   seconds' ) 
++        self.lDataConTimeOut2 = self.renderLabel( None, _('   seconds') ) 
+ 
+         # [idle_session_timeout]
+-        self.lIdleSession = self.renderLabel( None, 'Maximum amount of time between commands from client:   ' ) 
++        self.lIdleSession = self.renderLabel( None, _('Maximum amount of time between commands from client:   ') ) 
+         self.sIdleSession = self.renderSpinButton( None, [300.0, 0.0, 3600.0, 1.0, 100.0, 0.0], 0, 0 )
+         futils.makeConnect( self.sIdleSession, self.generalFunctions )
+-        self.lIdleSession2 = self.renderLabel( None, '   seconds' ) 
++        self.lIdleSession2 = self.renderLabel( None, _('   seconds') ) 
+ 
+         # [liten_port]
+-        self.lListenPort = self.renderLabel( None, 'Port on wich vsftpd listens for network connection:   ' ) 
++        self.lListenPort = self.renderLabel( None, _('Port on wich vsftpd listens for network connection:   ') ) 
+         self.sListenPort = self.renderSpinButton( None, [21.0, 0.0, 65535.0, 1.0, 100.0, 0.0], 0, 0 )
+         futils.makeConnect( self.sListenPort, self.generalFunctions  )
+ 
+         # [max_clients]
+-        self.lMaxClients = self.renderLabel( None, 'Maximum number of simultaneous clients allowed to connect to the server:   ' ) 
++        self.lMaxClients = self.renderLabel( None, _('Maximum number of simultaneous clients allowed to connect to the server:   ') ) 
+         self.sMaxClients = self.renderSpinButton( None, [21.0, 0.0, 9999.0, 1.0, 100.0, 0.0], 0, 0 )
+         futils.makeConnect( self.sMaxClients, self.generalFunctions )
+ 
+         # [max_per_ip]
+-        self.lMaxPerIP = self.renderLabel( None, 'Maximum of clients allowed to connect from the same source IP address:   ' ) 
++        self.lMaxPerIP = self.renderLabel( None, _('Maximum of clients allowed to connect from the same source IP address:   ') ) 
+         self.sMaxPerIP = self.renderSpinButton( None, [0.0, 0.0, 999.0, 1.0, 100.0, 0.0], 0, 0 )
+         futils.makeConnect( self.sMaxPerIP, self.generalFunctions )
+ 
+@@ -1321,15 +1321,15 @@
+         in one command 
+         """
+         # Box for rendering system box
+-        self.activeBox = self.renderNBPage( self.networkNotebook, 'Active connection', align=[10,10,10,10] )
++        self.activeBox = self.renderNBPage( self.networkNotebook, _('Active connection'), align=[10,10,10,10] )
+ 
+-        self.renderLabel( self.activeBox, "<i>Active connection: Data is sent through same port as commands</i>" )
++        self.renderLabel( self.activeBox, _("<i>Active connection: Data is sent through same port as commands</i>") )
+         
+         # horizontal separator
+         self.renderHBox( self.activeBox, [5, 5, 0, 0] )
+ 
+         # [port_enable]
+-        self.chAllowActive = self.renderCheckButton( self.activeBox, 'Enable active connections' )
++        self.chAllowActive = self.renderCheckButton( self.activeBox, _('Enable active connections') )
+         futils.makeConnect( self.chAllowActive, [self.__allowActiveConnection_toggled] + self.generalFunctions[1:] )
+         
+         # horizontal separator
+@@ -1337,13 +1337,13 @@
+         box = self.renderHBox( self.activeBox, [0, 0, 0, 0] )
+ 
+         # [connect_timeout]
+-        self.lAConnectionTimeOut = self.renderLabel( None, 'Maximum amount of time a client has to respond to a data connection:   ' ) 
++        self.lAConnectionTimeOut = self.renderLabel( None, _('Maximum amount of time a client has to respond to a data connection:   ') ) 
+         self.sAConnectionTimeOut = self.renderSpinButton( None, [300.0, 0.0, 3600.0, 1.0, 100.0, 0.0], 0, 0) 
+         futils.makeConnect( self.sAConnectionTimeOut, self.generalFunctions )
+-        self.lAConnectionTimeOut2 = self.renderLabel( None, '   seconds' ) 
++        self.lAConnectionTimeOut2 = self.renderLabel( None, _('   seconds') ) 
+ 
+         # [ftp_data_port]
+-        self.lADataPort = self.renderLabel( None, 'Port used for active data connections:   ' )
++        self.lADataPort = self.renderLabel( None, _('Port used for active data connections:   ') )
+         self.sADataPort = self.renderSpinButton( None, [20.0, 0.0, 65535.0, 1.0, 100.0, 0.0], 0, 0 )
+         futils.makeConnect( self.sADataPort, self.generalFunctions )
+ 
+@@ -1362,15 +1362,15 @@
+         in one command 
+         """
+         # Box for rendering system box
+-        self.passiveBox = self.renderNBPage( self.networkNotebook, 'Passive connections', align=[10,10,10,10] )
++        self.passiveBox = self.renderNBPage( self.networkNotebook, _('Passive connections'), align=[10,10,10,10] )
+ 
+-        self.renderLabel( self.passiveBox, '<i>Passive connection: Data are sending throw different ports as commands</i>', line_wrap_mode=gtk.WRAP_NONE )
++        self.renderLabel( self.passiveBox, _('<i>Passive connection: Data are sending throw different ports as commands</i>'), line_wrap_mode=gtk.WRAP_NONE )
+         
+         # horizontal separator
+         self.renderHBox( self.passiveBox, [5, 5, 0, 0] )
+ 
+         # [pasv_enable]
+-        self.chAllowPassive = self.renderCheckButton( self.passiveBox, 'Enable passive connections' )
++        self.chAllowPassive = self.renderCheckButton( self.passiveBox, _('Enable passive connections') )
+         futils.makeConnect( self.chAllowPassive, [self.__allowPassiveConnection_toggled] + self.generalFunctions[1:] )
+         
+         # horizontal separator
+@@ -1378,13 +1378,13 @@
+         box = self.renderHBox( self.passiveBox, [0, 0, 0, 0] )
+ 
+         # [accept_timeout]
+-        self.lPAcceptTimeOut = self.renderLabel( None, 'Maximum amount of time for a client to establish a connection:   ' ) 
++        self.lPAcceptTimeOut = self.renderLabel( None, _('Maximum amount of time for a client to establish a connection:   ') ) 
+         self.sPAcceptTimeOut = self.renderSpinButton( None, [300.0, 0.0, 3600.0, 1.0, 100.0, 0.0], 0, 0 )
+         futils.makeConnect( self.sPAcceptTimeOut, self.generalFunctions )
+-        self.lPAcceptTimeOut2 = self.renderLabel( None, '   seconds' ) 
++        self.lPAcceptTimeOut2 = self.renderLabel( None, _('   seconds') ) 
+ 
+         # [pasv_max_port] [pasv_min_port]
+-        self.lPPorts = self.renderLabel( None, 'Range of ports to bind by passive data transfer:   ' )
++        self.lPPorts = self.renderLabel( None, _('Range of ports to bind by passive data transfer:   ') )
+         self.sPMinPort = self.renderSpinButton( None, [1024.0, 1024.0, 65535.0, 1.0, 100.0, 0.0], 0, 0)
+         futils.makeConnect( self.sPMinPort, self.generalFunctions )
+         self.lPPorts2 = self.renderLabel( None, ' - ' ) 
+@@ -1400,7 +1400,7 @@
+         self.renderHBox( self.passiveBox, [5, 5, 0, 0] )
+ 
+         # [pasv_promiscuous]
+-        self.chPPasvPromiscuous = self.renderCheckButton( self.passiveBox, 'Check to make sure, that data connections are originating from the same IP' )
++        self.chPPasvPromiscuous = self.renderCheckButton( self.passiveBox, _('Check to make sure, that data connections are originating from the same IP') )
+         futils.makeConnect( self.chPPasvPromiscuous, self.generalFunctions )
+ 
+     def __allowActiveConnection_toggled( self, widget ):
+@@ -1532,7 +1532,7 @@
+     def build( self ):
+ 
+         # render main window from click on the left side
+-        futils.renderMainLabel( self.mainBox, self.ico_path+"logH.png", 'Transfer log', 'Read only xferlog in graphical format' )
++        futils.renderMainLabel( self.mainBox, self.ico_path+"logH.png", _('Transfer log'), _('Read only xferlog in graphical format') )
+         # ---------------------------------------------------------------------------------------- #
+ 
+ 
+@@ -1559,7 +1559,7 @@
+ 
+         self.renderHSeparator( self.mainBox, [5, 5, 0, 0], packing=[False,False] )
+         box1 = self.renderHBox( self.mainBox, [0, 0, 0, 0] )
+-        self.bReloadLogs = self.renderButton( box1, label="  Reload log  ", callbacks={"pressed": self.__logs} )
++        self.bReloadLogs = self.renderButton( box1, label=_("  Reload log  "), callbacks={"pressed": self.__logs} )
+         self.renderVBox( box1, [0,0,5,5,], packing=[False, False] )
+         align, self.progressBar = self.renderProgressBar( box1, align=[2,2,2,2] )
+         self.renderHSeparator( self.mainBox, [5, 5, 0, 0], packing=[False,False] )
+@@ -1625,11 +1625,11 @@
+         if step == 100:
+             self.log.dict = dict
+             if self.log.dict == None:
+-                    self.renderLabel( self.logBox, "<b>Log doesn't exists, try to select one in 'Logging' menu</b>", padding=[20, 10] )
++                    self.renderLabel( self.logBox, _("<b>Log doesn't exists, try to select one in 'Logging' menu</b>"), padding=[20, 10] )
+                     return
+ 
+             if len( self.log.dict.keys() ) == 0:
+-                    self.renderLabel( self.logBox, "<b>Log is empty</b>", padding=[20, 10] )
++                    self.renderLabel( self.logBox, _("<b>Log is empty</b>"), padding=[20, 10] )
+                     return
+ 
+             #: log loaded - create stores

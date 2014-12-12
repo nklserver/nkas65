@@ -1,0 +1,88 @@
+diff -aruN system-config-lvm-1.1.12.org/src/Filesystem.py system-config-lvm-1.1.12/src/Filesystem.py
+--- system-config-lvm-1.1.12.org/src/Filesystem.py	2014-05-15 09:17:38.347997434 +0800
++++ system-config-lvm-1.1.12/src/Filesystem.py	2014-05-15 11:09:04.911988718 +0800
+@@ -35,11 +35,11 @@
+         if fs.probe(path):
+             return fs
+ 
+-    if path not in cache_file_results:
+-        result = execWithCapture("/usr/bin/file", ['/usr/bin/file', '-s', '-L', path])
+-        cache_file_results[path] = result
+-    else:
+-        result = cache_file_results[path]
++    #if path not in cache_file_results:
++    result = execWithCapture("/usr/bin/file", ['/usr/bin/file', '-s', '-L', path])
++    cache_file_results[path] = result
++    #else:
++    #    result = cache_file_results[path]
+         
+     if re.search('FAT \(12 bit\)', result, re.I):
+         return Unknown('vfat12')
+@@ -169,11 +169,11 @@
+ 
+ 
+     def probe(self, path):
+-        if path not in cache_file_results:
+-            result = execWithCapture("/usr/bin/file", ['/usr/bin/file', '-s', '-L', path])
+-            cache_file_results[path] = result
+-        else:
+-            result = cache_file_results[path]
++        #if path not in cache_file_results:
++        result = execWithCapture("/usr/bin/file", ['/usr/bin/file', '-s', '-L', path])
++        cache_file_results[path] = result
++        #else:
++        #    result = cache_file_results[path]
+ 
+         if re.search('ext4', result, re.I):
+             return True
+@@ -280,11 +280,11 @@
+         
+     
+     def probe(self, path):
+-        if path not in cache_file_results:
+-            result = execWithCapture("/usr/bin/file", ['/usr/bin/file', '-s', '-L', path])
+-            cache_file_results[path] = result
+-        else:
+-            result = cache_file_results[path]
++        #if path not in cache_file_results:
++        result = execWithCapture("/usr/bin/file", ['/usr/bin/file', '-s', '-L', path])
++        cache_file_results[path] = result
++        #else:
++        #    result = cache_file_results[path]
+ 
+         if re.search('ext3', result, re.I):
+             return True
+@@ -413,11 +413,11 @@
+         
+     
+     def probe(self, path):
+-        if path not in cache_file_results:
+-            result = execWithCapture("/usr/bin/file", ['/usr/bin/file', '-s', '-L', path])
+-            cache_file_results[path] = result
+-        else:
+-            result = cache_file_results[path]
++        #if path not in cache_file_results:
++        result = execWithCapture("/usr/bin/file", ['/usr/bin/file', '-s', '-L', path])
++        cache_file_results[path] = result
++        #else:
++        #    result = cache_file_results[path]
+ 
+         if re.search('ext2', result, re.I):
+             return True
+@@ -802,11 +802,11 @@
+                             'xfs')
+ 
+     def probe(self, path):
+-        if path not in cache_file_results:
+-            result = execWithCapture("/usr/bin/file", ['/usr/bin/file', '-s', '-L', path])
+-            cache_file_results[path] = result
+-        else:
+-            result = cache_file_results[path]
++        #if path not in cache_file_results:
++        result = execWithCapture("/usr/bin/file", ['/usr/bin/file', '-s', '-L', path])
++        cache_file_results[path] = result
++        #else:
++        #    result = cache_file_results[path]
+ 
+         if re.search('SGI XFS', result, re.I):
+             return True

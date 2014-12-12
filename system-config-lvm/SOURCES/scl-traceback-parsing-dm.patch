@@ -1,0 +1,45 @@
+From 23146fe52a886ce813f3743422a882ed1f24bbb0 Mon Sep 17 00:00:00 2001
+From: Marek 'marx' Grac <mgrac@redhat.com>
+Date: Wed, 2 May 2012 12:27:20 +0200
+Subject: [PATCH 2/2] Resolves: rhbz#815921 - s-c-lvm traceback on parsing
+ "dmsetup ls" output
+
+Command 'dmsetup ls' now have different output than expected. Following patch
+changes output format of dmsetup from user's output to script friendly one.
+---
+ src/Multipath.py |   11 +++++++----
+ 1 files changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/src/Multipath.py b/src/Multipath.py
+index 5af4bad..297ed1f 100644
+--- a/src/Multipath.py
++++ b/src/Multipath.py
+@@ -64,7 +64,10 @@ class Multipath:
+             # get origin
+             args = list()
+             args.append(DMSETUP_BIN)
+-            args.append('ls')
++            args.append('info')
++            args.append('-c')
++            args.append('-o name,major,minor')
++            args.append('--noheadings')
+             cmdstr = ' '.join(args)
+             o,e,r = execWithCaptureErrorStatus(DMSETUP_BIN, args)
+             if r != 0:
+@@ -72,10 +75,10 @@ class Multipath:
+             origin = None
+             origin_name = words[0].rstrip(':')
+             for or_line in o.splitlines():
+-                or_words = or_line.split()
++                or_words = or_line.split(':')
+                 if or_words[0] == origin_name:
+-                    major = or_words[1].strip('(').strip(',')
+-                    minor = or_words[2].strip(')')
++                    major = or_words[1].strip()
++                    minor = or_words[2].strip()
+                     for l in block_devices:
+                         if l[1] == major and l[2] == minor:
+                             origin = l[0]
+-- 
+1.7.7.6
+

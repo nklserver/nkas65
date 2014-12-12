@@ -1,0 +1,42 @@
+diff -aruN system-config-kdump-2.0.2.2.org/src/system-config-kdump.glade system-config-kdump-2.0.2.2/src/system-config-kdump.glade
+--- system-config-kdump-2.0.2.2.org/src/system-config-kdump.glade	2012-09-22 18:11:28.914593144 +0800
++++ system-config-kdump-2.0.2.2/src/system-config-kdump.glade	2012-09-22 18:12:14.620560948 +0800
+@@ -72,7 +72,7 @@
+                         <property name="label" translatable="yes">Enable kdump</property>
+                         <property name="visible">True</property>
+                         <property name="use_underline">True</property>
+-                        <property name="use_stock">True</property>
++                        <property name="use_stock">False</property>
+                       </widget>
+                     </child>
+                     <child>
+@@ -80,7 +80,7 @@
+                         <property name="label" translatable="yes">Disable kdump</property>
+                         <property name="visible">True</property>
+                         <property name="use_underline">True</property>
+-                        <property name="use_stock">True</property>
++                        <property name="use_stock">False</property>
+                       </widget>
+                     </child>
+                   </widget>
+@@ -378,7 +378,7 @@
+                                             <property name="invisible_char">&#x25CF;</property>
+                                             <property name="width_chars">6</property>
+                                             <property name="shadow_type">none</property>
+-                                            <property name="adjustment">0 0 100 1 10 10</property>
++                                            <property name="adjustment">0 0 100 1 10 0</property>
+                                             <property name="numeric">True</property>
+                                             <property name="update_policy">if-valid</property>
+                                           </widget>
+diff -aruN system-config-kdump-2.0.2.2.org/src/system-config-kdump.py system-config-kdump-2.0.2.2/src/system-config-kdump.py
+--- system-config-kdump-2.0.2.2.org/src/system-config-kdump.py	2012-09-22 18:11:28.913576505 +0800
++++ system-config-kdump-2.0.2.2/src/system-config-kdump.py	2012-09-22 18:12:25.460848979 +0800
+@@ -765,7 +765,7 @@
+ 
+         self.kdump_mem_current_label.set_text("%s (MB)" % (kdump_mem))
+ 
+-        kdump_mem_adj = gtk.Adjustment(kdump_mem, lower_bound, upper_bound, step, step, 64)
++        kdump_mem_adj = gtk.Adjustment(kdump_mem, lower_bound, upper_bound, step, step, 0)
+         self.kdump_mem_spin_button.set_adjustment(kdump_mem_adj)
+         self.kdump_mem_spin_button.set_update_policy(gtk.UPDATE_IF_VALID)
+         self.kdump_mem_spin_button.set_numeric(True)

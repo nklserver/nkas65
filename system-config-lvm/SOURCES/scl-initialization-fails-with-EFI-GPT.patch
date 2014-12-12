@@ -1,0 +1,49 @@
+From f97d4e1ffc906fec7d1d9005c9d3f88d6bbeff02 Mon Sep 17 00:00:00 2001
+From: Marek 'marx' Grac <mgrac@redhat.com>
+Date: Thu, 26 May 2011 17:10:01 +0200
+Subject: [PATCH] Resolves: #700253 - Disk initialization fails with GPT EFI
+ partition table
+
+Initialization of disk failed when EFI GPT partition table is used. Unfortunately
+fdisk (used as backend for partition operation) does not support it.
+system-config-lvm will be replaced so changing fdisk to parted is too big change.
+This fix replaces a python backtrace with proper error message.
+---
+ src/lvm_model.py |    7 ++++++-
+ 1 files changed, 6 insertions(+), 1 deletions(-)
+
+diff --git a/src/lvm_model.py b/src/lvm_model.py
+index 92f0cfd..6a268cd 100644
+--- a/src/lvm_model.py
++++ b/src/lvm_model.py
+@@ -5,6 +5,7 @@ import string
+ import re
+ from lvmui_constants import *
+ from BlockDeviceModel import *
++from CommandError import CommandError
+ from execute import execWithCapture, execWithCaptureErrorStatus, execWithCaptureStatus, ProgressPopup
+ import gettext
+ _ = gettext.gettext
+@@ -98,7 +99,7 @@ EXTENDED_PARTITION=_("Extended partition")
+ #Translator: the line below refers to a standard linux swap partition.
+ SWAP_IN_USE=_("Swap partition currently in use")
+ FOREIGN_BOOT_PARTITION=_("Foreign boot partition")
+-AUTOPARTITION_FAILURE=_("Autopartition failure")
++AUTOPARTITION_FAILURE=_("Autopartition failure: %s")
+ 
+ VG_NAME_IDX = 0
+ VG_SYSID_IDX = 1
+@@ -728,6 +729,10 @@ class lvm_model:
+       except BlockDeviceErr:
+         self.__block_device_model.reload()
+         raise CommandError('FATAL', AUTOPARTITION_FAILURE % devname)
++      except AttributeError:
++        self.__block_device_model.reload()
++        raise CommandError('FATAL', AUTOPARTITION_FAILURE % devname)
++
+     return pv.get_path()
+   
+   def __set_VGs_props(self):
+-- 
+1.7.4.4
+

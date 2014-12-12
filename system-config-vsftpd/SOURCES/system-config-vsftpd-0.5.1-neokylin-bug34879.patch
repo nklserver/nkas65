@@ -1,0 +1,11 @@
+diff -aruN system-config-vsftpd-0.5.1.org/src/render.py system-config-vsftpd-0.5.1/src/render.py
+--- system-config-vsftpd-0.5.1.org/src/render.py	2014-04-15 10:32:26.688996183 +0800
++++ system-config-vsftpd-0.5.1/src/render.py	2014-04-15 10:35:56.850996388 +0800
+@@ -192,7 +192,6 @@
+ 		if self.uploadEnable.get_active( ): self.config["write_enable"] = "YES"
+ 		else: self.config["write_enable"] = "NO"
+         elif widget == self.chGeneralUseTCPWrappers:
+-            print "aaa"
+             if widget.get_active( ) == True: self.config["tcp_wrappers"] = "YES"
+             else: self.config["tcp_wrappers"] = "NO"
+         elif widget == self.cbGeneralStandaloneProtocol:

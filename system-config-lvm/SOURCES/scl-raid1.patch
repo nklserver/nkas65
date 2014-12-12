@@ -1,0 +1,32 @@
+From 7169d7adf12d5bd3acb585ec0858fec458e6aca0 Mon Sep 17 00:00:00 2001
+From: Marek 'marx' Grac <mgrac@redhat.com>
+Date: Thu, 13 Sep 2012 11:58:33 +0200
+Subject: [PATCH 1/2] Resolves: #852864 - Crash when encountering RAID1 in LVM
+
+s-c-lvm won't crash but it will show hidden LV instead. Support for RAID1
+was not added
+---
+ src/lvm_model.py |    7 ++++---
+ 1 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/src/lvm_model.py b/src/lvm_model.py
+index 6a268cd..a4342c4 100644
+--- a/src/lvm_model.py
++++ b/src/lvm_model.py
+@@ -540,9 +540,10 @@ class lvm_model:
+             if pv_t.get_path() == pvpath:
+               pv = pv_t
+               break
+-          extent_block = ExtentBlock(pv, lv, ph_ext_beg, seg_size/len(devs))
+-          segment.add_stripe(stripe_id, extent_block)
+-          stripe_id = stripe_id + 1
++          if pv != None:
++            extent_block = ExtentBlock(pv, lv, ph_ext_beg, seg_size/len(devs))
++            segment.add_stripe(stripe_id, extent_block)
++            stripe_id = stripe_id + 1
+       
+       lv.add_segment(segment)
+       
+-- 
+1.7.7.6
+

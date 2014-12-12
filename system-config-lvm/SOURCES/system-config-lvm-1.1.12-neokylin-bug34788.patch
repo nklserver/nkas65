@@ -1,0 +1,57 @@
+diff -aruN system-config-lvm-1.1.12.org/po/zh_CN.po system-config-lvm-1.1.12/po/zh_CN.po
+--- system-config-lvm-1.1.12.org/po/zh_CN.po	2014-03-28 16:37:31.249976669 +0800
++++ system-config-lvm-1.1.12/po/zh_CN.po	2014-03-28 17:11:22.509974721 +0800
+@@ -351,7 +351,7 @@
+ "cluster rpm has to be installed, `lvmconf --enable-cluster` has to be "
+ "executed and clvmd service has to be running"
+ msgstr ""
+-"为了使卷标组可在集合环境中安全使用，需安装lvm2-cluster， 需执行`lvmconf --"
++"为了使卷标组可在集群环境中安全使用，需安装lvm2-cluster， 需执行`lvmconf --"
+ "enable-cluster`并运行clvmd服务"
+ 
+ #: ../src/InputController.py:367
+@@ -828,7 +828,7 @@
+ 
+ #: ../src/lvm_model.py:758
+ msgid "Clustered:   "
+-msgstr "集合："
++msgstr "集群："
+ 
+ #: ../src/lvm_model.py:760
+ msgid "True"
+@@ -1200,7 +1200,7 @@
+ 
+ #: ../src/Filesystem.py:606
+ msgid "GFS (clustered)"
+-msgstr "GFS(集合)"
++msgstr "GFS(集群)"
+ 
+ #: ../src/Filesystem.py:640 ../src/Filesystem.py:976
+ msgid "Cluster name contains illegal character "
+@@ -1224,7 +1224,7 @@
+ 
+ #: ../src/Filesystem.py:942
+ msgid "GFS2 (clustered)"
+-msgstr "GFS2（集合）"
++msgstr "GFS2（集群）"
+ 
+ #: ../src/Filesystem.glade.h:1 ../src/lvui.glade.h:1
+ #: ../src/lv_edit_props.glade.h:1
+@@ -1338,7 +1338,7 @@
+ 
+ #: ../src/lvui.glade.h:15
+ msgid "Clustered"
+-msgstr "集合"
++msgstr "集群"
+ 
+ #: ../src/lvui.glade.h:16
+ msgid ""
+@@ -1414,7 +1414,7 @@
+ 
+ #: ../src/lvui.glade.h:34
+ msgid "Mark Volume Group as 'clustered'"
+-msgstr "用‘集合’标志卷标组"
++msgstr "用‘集群’标志卷标组"
+ 
+ #: ../src/lvui.glade.h:35
+ msgid "Maximum Logical Volumes"

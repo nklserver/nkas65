@@ -1,0 +1,33 @@
+diff -uraN system-config-vsftpd-0.5.1.old/src/render.py system-config-vsftpd-0.5.1.change/src/render.py
+--- system-config-vsftpd-0.5.1.old/src/render.py	2012-04-10 11:32:56.219163493 +0800
++++ system-config-vsftpd-0.5.1.change/src/render.py	2012-04-11 13:19:33.838227217 +0800
+@@ -21,6 +21,7 @@
+ 
+ # Import GTK and PyGTK libraries
+ import gtk
++import re
+ import gettext
+ _ = gettext.gettext
+ 
+@@ -322,6 +323,10 @@
+         # server is not running
+         if self.shell.status[0]: 
+             message = self.shell.startServer( )
++#neokylin add
++            mat = re.compile('\033\[0;3[0-9]m')
++            message = mat.sub('',message).replace('\033[60G','')
++#end
+             #start = string.find( message, ":" ) + 2
+             #firstSpace = string.find( message, " ", start )
+             #secondSpace = string.find( message, " ", firstSpace + 2 )
+@@ -331,6 +336,10 @@
+ 
+         else:
+             message = self.shell.stopServer( )
++#neokylin add
++            mat=re.compile('\033\[0;3[0-9]m')
++            message=mat.sub('',message).replace('\033[60G','')
++#end
+             #start = string.find( message, ":" ) + 2
+             #firstSpace = string.find( message, " ", start )
+             #secondSpace = string.find( message, " ", firstSpace + 2 )

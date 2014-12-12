@@ -1,0 +1,15 @@
+diff -aruN system-config-kdump-2.0.5.org/src/system-config-kdump.py system-config-kdump-2.0.5/src/system-config-kdump.py
+--- system-config-kdump-2.0.5.org/src/system-config-kdump.py	2014-05-08 09:25:35.237999514 +0800
++++ system-config-kdump-2.0.5/src/system-config-kdump.py	2014-05-08 13:39:45.608993717 +0800
+@@ -1457,7 +1457,10 @@
+                         text = text + " " + TAG_DEFAULT
+                     if text.find(self.running_kernel) is not -1:
+                         text = text + " " + TAG_CURRENT
+-                    combobox.append_text(self.kernel_prefix + text)
++                    if self.kernel_prefix not in text:
++                        combobox.append_text(self.kernel_prefix + text)
++                    else:
++                        combobox.append_text(text)
+                     if DEBUG:
+                         print "Appended kernel:\"" + self.kernel_prefix +\
+                             text + "\""

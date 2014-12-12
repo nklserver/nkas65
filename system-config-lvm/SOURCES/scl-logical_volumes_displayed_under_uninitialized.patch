@@ -1,0 +1,41 @@
+From 4c967d02f4b9ff4b40fb22d630858d87fc72fc38 Mon Sep 17 00:00:00 2001
+From: Marek 'marx' Grac <mgrac@redhat.com>
+Date: Sat, 18 Feb 2012 13:36:09 +0100
+Subject: [PATCH] Resolves: #791153 - Logical Volumes are displayed under
+ 'Uninitialized'
+
+fdisk started to return logical volumes, so check using blkid was added to
+identify and remove them from list of PV
+---
+ src/fdisk_wrapper.py |    8 ++++++++
+ 1 files changed, 8 insertions(+), 0 deletions(-)
+
+diff --git a/src/fdisk_wrapper.py b/src/fdisk_wrapper.py
+index 9642d2b..302e620 100644
+--- a/src/fdisk_wrapper.py
++++ b/src/fdisk_wrapper.py
+@@ -8,6 +8,7 @@ from Partition import *
+ 
+ SFDISK='/sbin/sfdisk'
+ FDISK='/sbin/fdisk'
++BLKID='/sbin/blkid'
+ BASH='/bin/bash'
+     
+ TMP_FILE='/tmp/one_extremely_long_name_hoping_nobody_is_gona_use_it'
+@@ -43,6 +44,13 @@ class FDisk:
+             res = execWithCapture(SFDISK, [SFDISK, '-s', dev])
+             if re.match('.*cannot get geometry.*', res):
+                 devices.remove(dev)
++
++        # check with blkid to remove false PV (all logical volumes in /dev/mapper)
++        for dev in devices[:]:
++            out, ret = execWithCaptureStatus(BLKID, [BLKID, dev])
++            if ret == 0:
++                devices.remove(dev)
++        
+         return devices
+     
+     
+-- 
+1.7.7.6
+

@@ -1,0 +1,44 @@
+From d97f18f6c012cfd428e9029f0a44b7c181f40d02 Mon Sep 17 00:00:00 2001
+From: Marek 'marx' Grac <mgrac@redhat.com>
+Date: Thu, 21 Jul 2011 11:58:10 +0200
+Subject: [PATCH] Resolves: #658344 - system-config-lvm leaves mount for LV in
+ fstab after it was completely removed
+
+In new distributions there was change in organization of devices in /dev/ and now
+there is not a symlink from /dev/vg/lv to /dev/mapper/vg-lv. This patch fixes this issue.
+---
+ src/Fstab.py |   13 +++++++++++++
+ 1 files changed, 13 insertions(+), 0 deletions(-)
+
+diff --git a/src/Fstab.py b/src/Fstab.py
+index 8d062c3..27fd59a 100644
+--- a/src/Fstab.py
++++ b/src/Fstab.py
+@@ -1,6 +1,7 @@
+ 
+ import sys
+ import os
++import re
+ 
+ import Filesystem
+ 
+@@ -119,4 +120,16 @@ def get_all_paths(dev_path):
+     if label != None:
+         paths.append('LABEL=' + label)
+ 
++    ## in new distributions there is no link from /dev/vg/lv
++    ## to /dev/mapper/vg-lv - so we will try to map it directly
++    regex = re.compile("^/dev\/([^\/]*?)\/([^\/]*?)$")
++    append_paths = []
++    for p in paths:
++        r = regex.search(p)
++        if r != None:
++            append_paths.append("/dev/mapper/" + r.groups()[0].replace("-", "--") + "-" + r.groups()[1].replace("-", "--"))
++
++    if append_paths != None:
++        paths.extend(append_paths)
++
+     return paths
+-- 
+1.7.4.4
+

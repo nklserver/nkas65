@@ -1,0 +1,52 @@
+diff -uraN system-config-vsftpd-0.5.1.old/src/configParser.py system-config-vsftpd-0.5.1.change/src/configParser.py
+--- system-config-vsftpd-0.5.1.old/src/configParser.py	2012-03-05 16:30:46.395144000 +0800
++++ system-config-vsftpd-0.5.1.change/src/configParser.py	2012-03-06 16:53:25.233069652 +0800
+@@ -248,28 +248,28 @@
+ 
+     def saveConfig( self, window ):
+         """ Methode for saving configuration to server file (/etc/vsftpd/vsftpd.conf) """
+-
++        
+         for variable in self.new.keys( ):
+             if variable in self.current:
+                 if self.new[variable] == self.current[variable]: del self.new[variable]
+             elif self.new[variable] == self.default[variable]: del self.new[variable]
+ 
+         if len( self.new ) == 0: return None #: there's nothing to save
+-
++        
+         # variable is in default configuration
+         for variable in self.new.keys( ): 
+                 # remove variable, which is default
+-            if variable in self.default and ( self.new[variable] == self.default[variable] or self.new[variable] == '{}' ):
+-                    #del self.new[variable]
+-                    exp = re.compile( r" *"+variable+"=" )
+-                    nexp = re.compile( r" *#" )
+-                    for e, line in enumerate( self.lines ):
+-                        if exp.search( line ) and not nexp.search( line ): 
+-                            self.lines[ e ] = "#" + line
+-                            assert _(" [C] Commenting variable: ") + variable
++           # if variable in self.default and ( self.new[variable] == self.default[variable] or self.new[variable] == '{}' ):
++           #         #del self.new[variable]
++           #         exp = re.compile( r" *"+variable+"=" )
++           #         nexp = re.compile( r" *#" )
++           #         for e, line in enumerate( self.lines ):
++           #             if exp.search( line ) and not nexp.search( line ): 
++           #                 self.lines[ e ] = "#" + line
++           #                 assert _(" [C] Commenting variable: ") + variable
+ 
+                 # find commented variables and uncommend them, if in new config
+-            else:
++           # else:
+                 found = False
+                 exp = re.compile( "^\s?"+variable+"=" )
+                 nexp = re.compile( "^\s*#\s*"+variable+"=" )
+@@ -303,6 +303,8 @@
+             confFile = open( self.pathname, "w" )
+             confFile.writelines( self.lines )
+             confFile.close( )
++            self.current.update( self.new )
++            self.new = {}
+             if choice == 1: 
+                 output = self.shell.restartServer()
+                 print output

@@ -1,0 +1,38 @@
+From ac25ec16219f4fd53e7b839ccab90b094fd5dc5c Mon Sep 17 00:00:00 2001
+From: Marek 'marx' Grac <mgrac@redhat.com>
+Date: Wed, 2 May 2012 11:53:34 +0200
+Subject: [PATCH 1/2] Resolves: #791153 - displays Logical Volumes under
+ 'Uninitialised Entities'
+
+Logical volumes without filesystem should not in 'Uninitialised Entitities'
+---
+ src/fdisk_wrapper.py |    6 ++++++
+ 1 files changed, 6 insertions(+), 0 deletions(-)
+
+diff --git a/src/fdisk_wrapper.py b/src/fdisk_wrapper.py
+index 03601c8..2645856 100644
+--- a/src/fdisk_wrapper.py
++++ b/src/fdisk_wrapper.py
+@@ -10,6 +10,7 @@ SFDISK='/sbin/sfdisk'
+ FDISK='/sbin/fdisk'
+ BLKID='/sbin/blkid'
+ BASH='/bin/bash'
++LVDISPLAY='/sbin/lvdisplay'
+     
+ TMP_FILE='/tmp/one_extremely_long_name_hoping_nobody_is_gona_use_it'
+ 
+@@ -50,6 +51,11 @@ class FDisk:
+             out, ret = execWithCaptureStatus(BLKID, [BLKID, dev])
+             if ret == 0:
+                 devices.remove(dev)
++                continue
++            out, ret = execWithCaptureStatus(LVDISPLAY, [LVDISPLAY, dev])
++            if ret == 0:
++                devices.remove(dev)
++                continue
+         
+         return devices
+     
+-- 
+1.7.7.6
+

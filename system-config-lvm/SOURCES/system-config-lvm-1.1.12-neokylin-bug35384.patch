@@ -1,0 +1,11 @@
+diff -aruN system-config-lvm-1.1.12.org/src/Filesystem.py system-config-lvm-1.1.12/src/Filesystem.py
+--- system-config-lvm-1.1.12.org/src/Filesystem.py	2014-05-21 09:55:49.875999134 +0800
++++ system-config-lvm-1.1.12/src/Filesystem.py	2014-05-21 09:56:32.136999121 +0800
+@@ -816,6 +816,7 @@
+         args.append("/sbin/mkfs")
+         args.append("-t")
+         args.append('xfs')
++        args.append('-f')
+         args.append(path)
+         cmdstr = ' '.join(args)
+         msg = CREATING_FS % (self.name)

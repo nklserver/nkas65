@@ -1,0 +1,41 @@
+diff -uraN system-config-vsftpd-0.5.1.old/src/exitDialog.py system-config-vsftpd-0.5.1.change/src/exitDialog.py
+--- system-config-vsftpd-0.5.1.old/src/exitDialog.py	2012-04-26 10:48:49.353520296 +0800
++++ system-config-vsftpd-0.5.1.change/src/exitDialog.py	2012-04-26 17:21:18.452048629 +0800
+@@ -43,10 +43,12 @@
+ 
+     def __close_application(self, widget, event, data=None):
+         self.window.hide( )
+-        return 3
++        self.test = 3
+ 
+     def __init__( self, parent, new, old ):
+ 
++        self.test = 0
++
+         self.window = self.renderDialogWindow( parent, _("Please choose ..."), 300, 250, resizable=True, modal=True, callbacks={"delete_event": self.__close_application} )
+         
+         box = self.renderVBox( self.window.vbox, packing=[True, True] )
+@@ -82,5 +84,7 @@
+ 
+         result = self.window.run()
+         self.window.destroy( )
+-
+-        return self.combo.get_active()
++        if self.test == 3:
++                return 3
++        else:
++                return self.combo.get_active()
+diff -uraN system-config-vsftpd-0.5.1.old/src/guiRender.py system-config-vsftpd-0.5.1.change/src/guiRender.py
+--- system-config-vsftpd-0.5.1.old/src/guiRender.py	2012-04-26 10:48:49.355060920 +0800
++++ system-config-vsftpd-0.5.1.change/src/guiRender.py	2012-04-26 17:22:39.854550814 +0800
+@@ -936,7 +936,9 @@
+             window.resize( width, height )
+             window.set_default_size( width, height )
+         window.set_resizable( resizable )
+-        
++        for key in callbacks.keys():
++            window.connect( key, callbacks[key] )       
++ 
+         return window
+ 
+     def renderButton( self, box, type=None, icon=None, size=gtk.ICON_SIZE_MENU, packing=[False, False], align=None, callbacks={}, label=None, relief=gtk.RELIEF_NORMAL ):

@@ -1,0 +1,15 @@
+diff -aruN system-config-kdump-2.0.5.org/src/system-config-kdump.py system-config-kdump-2.0.5/src/system-config-kdump.py
+--- system-config-kdump-2.0.5.org/src/system-config-kdump.py	2014-06-12 09:11:04.177999344 +0800
++++ system-config-kdump-2.0.5/src/system-config-kdump.py	2014-06-12 15:49:34.296999716 +0800
+@@ -681,6 +681,11 @@
+             self.radio_manual.set_active(True)
+             self.memory_table.set_sensitive(True)
+             self.radio_auto.toggled()
++	else:
++	    my_crashkernel = self.get_crashkernel(self.command_line_entry.get_text())
++	    if "auto" not in my_crashkernel:
++		self.radio_auto.set_active(False)	
++		self.radio_manual.set_active(True)
+ 
+         self.orig_settings.use_auto = self.my_settings.use_auto
+ 

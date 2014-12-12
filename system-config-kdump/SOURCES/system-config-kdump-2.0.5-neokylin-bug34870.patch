@@ -1,0 +1,16 @@
+diff -aruN system-config-kdump-2.0.5.org/src/system-config-kdump.py system-config-kdump-2.0.5/src/system-config-kdump.py
+--- system-config-kdump-2.0.5.org/src/system-config-kdump.py	2014-05-09 17:08:12.091984635 +0800
++++ system-config-kdump-2.0.5/src/system-config-kdump.py	2014-05-09 17:22:34.883984206 +0800
+@@ -1931,8 +1931,10 @@
+ 
+             # If we use auto option, don't do anything with current service
+             # don't stop neither start it
+-            if self.my_settings.use_auto:
+-                service_op = ""
++            #neokylin change this because if use_auto, while change kdump conf locale path
++            #if don't restart service or system, if kernel crash, the grub.conf while be empty
++            #if self.my_settings.use_auto:
++            #    service_op = ""
+ 
+             cmd, status, std, err = self.dbus_object.handlekdumpservice(
+                 chkconfig_status, service_op)
